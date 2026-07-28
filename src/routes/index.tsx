@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import heroForest from "@/assets/hero-forest.jpg";
-import portrait from "@/assets/portrait.jpg";
+import mentorPortrait from "@/assets/mentor-portrait.jpg.asset.json";
 import horizon from "@/assets/horizon.jpg";
 import videoThumb from "@/assets/video-thumb.jpg";
 import moss from "@/assets/moss.jpg";
