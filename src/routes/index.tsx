@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import heroForest from "@/assets/hero-forest.jpg";
-import portrait from "@/assets/portrait.jpg";
+import mentorPortrait from "@/assets/mentor-portrait.jpg.asset.json";
 import horizon from "@/assets/horizon.jpg";
 import videoThumb from "@/assets/video-thumb.jpg";
 import moss from "@/assets/moss.jpg";
@@ -487,7 +487,7 @@ function Landing() {
         <div className="container-editorial grid gap-16 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-24">
           <div className="reveal">
             <div className="sticky top-32">
-              <img src={portrait} alt="Retrato de o.gentólogo" className="w-full object-cover" loading="lazy" width={1200} height={1500} />
+              <img src={mentorPortrait.url} alt="Retrato de o.gentólogo" className="w-full object-cover" loading="lazy" width={1200} height={1500} />
               <p className="serif mt-6 text-lg italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
             </div>
           </div>
