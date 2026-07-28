@@ -640,8 +640,13 @@ function Landing() {
         <div className="container-editorial">
           <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
             <div>
-              <p className="serif text-lg tracking-[0.24em] uppercase" style={{ color: "var(--ivory)" }}>OS RESSURGENTES</p>
-              <p className="serif mt-2 italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
+              <div className="flex items-center gap-4">
+                <img src={logoAsset.url} alt="Os Ressurgentes" className="h-14 w-14 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+                <div>
+                  <p className="serif text-lg tracking-[0.24em] uppercase" style={{ color: "var(--ivory)" }}>OS RESSURGENTES</p>
+                  <p className="serif mt-1 italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
+                </div>
+              </div>
               <p className="mt-6 max-w-sm text-sm leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
                 Descer ao fundo. Ressurgir transformado.
               </p>
