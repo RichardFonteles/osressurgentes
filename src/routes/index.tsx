@@ -5,6 +5,7 @@ import portrait from "@/assets/portrait.jpg";
 import horizon from "@/assets/horizon.jpg";
 import videoThumb from "@/assets/video-thumb.jpg";
 import moss from "@/assets/moss.jpg";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -74,8 +75,9 @@ function Nav() {
       }}
     >
       <div className="container-editorial flex items-center justify-between py-5">
-        <a href="#top" className="serif text-sm tracking-[0.32em] uppercase" style={{ color: "var(--ivory)" }}>
-          OS RESSURGENTES
+        <a href="#top" className="flex items-center gap-3" style={{ color: "var(--ivory)" }}>
+          <img src={logoAsset.url} alt="Os Ressurgentes" className="h-10 w-10 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+          <span className="serif text-sm tracking-[0.32em] uppercase hidden sm:inline">OS RESSURGENTES</span>
         </a>
         <nav className="hidden gap-8 text-xs uppercase tracking-[0.24em] md:flex" style={{ color: "var(--muted-foreground)" }}>
           <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">O Limbo</a>
@@ -638,8 +640,13 @@ function Landing() {
         <div className="container-editorial">
           <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
             <div>
-              <p className="serif text-lg tracking-[0.24em] uppercase" style={{ color: "var(--ivory)" }}>OS RESSURGENTES</p>
-              <p className="serif mt-2 italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
+              <div className="flex items-center gap-4">
+                <img src={logoAsset.url} alt="Os Ressurgentes" className="h-14 w-14 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+                <div>
+                  <p className="serif text-lg tracking-[0.24em] uppercase" style={{ color: "var(--ivory)" }}>OS RESSURGENTES</p>
+                  <p className="serif mt-1 italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
+                </div>
+              </div>
               <p className="mt-6 max-w-sm text-sm leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
                 Descer ao fundo. Ressurgir transformado.
               </p>
