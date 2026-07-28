@@ -5,6 +5,7 @@ import portrait from "@/assets/portrait.jpg";
 import horizon from "@/assets/horizon.jpg";
 import videoThumb from "@/assets/video-thumb.jpg";
 import moss from "@/assets/moss.jpg";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -74,8 +75,9 @@ function Nav() {
       }}
     >
       <div className="container-editorial flex items-center justify-between py-5">
-        <a href="#top" className="serif text-sm tracking-[0.32em] uppercase" style={{ color: "var(--ivory)" }}>
-          OS RESSURGENTES
+        <a href="#top" className="flex items-center gap-3" style={{ color: "var(--ivory)" }}>
+          <img src={logoAsset.url} alt="Os Ressurgentes" className="h-10 w-10 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+          <span className="serif text-sm tracking-[0.32em] uppercase hidden sm:inline">OS RESSURGENTES</span>
         </a>
         <nav className="hidden gap-8 text-xs uppercase tracking-[0.24em] md:flex" style={{ color: "var(--muted-foreground)" }}>
           <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">O Limbo</a>
