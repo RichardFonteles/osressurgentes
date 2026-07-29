@@ -524,19 +524,19 @@ function Landing() {
           <div className="max-w-3xl reveal">
             <Eyebrow>a travessia</Eyebrow>
             <SectionTitle>
-              A Travessia não entrega uma nova vida pronta.<br />
-              <span style={{ color: "var(--sand)" }}>Ela ajuda você a reconstruí-la.</span>
+              A Travessia não entrega uma vida pronta.<br />
+              <span style={{ color: "var(--sand)" }}>Devolve a autoria da sua.</span>
             </SectionTitle>
           </div>
 
           <ol className="mt-20 mx-auto max-w-3xl">
             {[
-              ["Reconhecer o Limbo", "Perceber onde sua vida ficou suspensa."],
-              ["Identificar as Correntes Invisíveis", "Nomear os padrões que ainda decidem por você."],
-              ["Atravessar as Sombras", "Reconhecer e integrar desejos, medos, dores e emoções."],
-              ["Assumir o Poder Criador", "Transformar consciência em decisão e movimento."],
-              ["Reconstruir a Identidade", "Deixar de reagir ao passado e começar a construir o futuro."],
-              ["Ressurgir", "Não voltar a ser quem era, mas viver a partir de uma nova posição."],
+              ["Reconhecer o Limbo", "Ver onde a sua vida ficou suspensa."],
+              ["Nomear as Correntes", "Identificar os padrões que ainda decidem por você."],
+              ["Atravessar as Sombras", "Integrar desejos, medos e emoções negados."],
+              ["Assumir o Poder Criador", "Transformar consciência em decisão."],
+              ["Reconstruir a Identidade", "Parar de reagir. Começar a construir."],
+              ["Ressurgir", "Não voltar a ser. Passar a existir de outro modo."],
             ].map(([title, body], i) => (
               <li key={title} className="reveal-left relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
                 <span
@@ -554,7 +554,7 @@ function Landing() {
           </ol>
 
           <p className="mx-auto mt-12 max-w-2xl text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Cada homem atravessa em seu próprio ritmo. Não há promessa linear. Há caminho.
+            Sem promessa linear. Cada homem no seu ritmo. Há caminho.
           </p>
         </div>
       </section>
