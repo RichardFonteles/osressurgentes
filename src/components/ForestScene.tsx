@@ -29,6 +29,9 @@ export default function ForestScene({ className = "" }: { className?: string }) 
     if (!mount) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saveData = (navigator as any).connection?.saveData === true;
+    const lowMem = ((navigator as any).deviceMemory ?? 8) < 4;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const width = () => mount.clientWidth;
     const height = () => mount.clientHeight;
 
@@ -38,7 +41,9 @@ export default function ForestScene({ className = "" }: { className?: string }) 
       alpha: true,
       powerPreference: "high-performance",
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    // DPR mais agressivo em mobile: 1.0 mobile, 1.25 low-mem, 1.5 desktop.
+    const dprCap = isMobile ? 1 : lowMem ? 1.25 : 1.5;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, dprCap));
     renderer.setSize(width(), height());
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
@@ -54,9 +59,11 @@ export default function ForestScene({ className = "" }: { className?: string }) 
     camera.position.set(0, 0, 22);
 
     // --- Contagem adaptativa ------------------------------------------
-    // Ajusta densidade por tamanho de tela + reduced motion.
-    const base = width() < 640 ? 1800 : width() < 1200 ? 3200 : 5000;
-    const COUNT = reduced ? Math.floor(base * 0.5) : base;
+    // Adaptativa por tela + memória + Save-Data + reduced-motion.
+    let base = isMobile ? 1200 : width() < 1200 ? 2600 : 4200;
+    if (lowMem) base = Math.floor(base * 0.6);
+    if (saveData) base = Math.floor(base * 0.5);
+    const COUNT = reduced ? Math.floor(base * 0.4) : base;
 
     // --- Geometria das brasas -----------------------------------------
     const positions = new Float32Array(COUNT * 3);
