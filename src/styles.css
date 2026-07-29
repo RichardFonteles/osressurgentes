@@ -258,6 +258,16 @@
   transition: transform 0.1s linear;
 }
 
+/* Scroll cue — drift vertical lento, assinatura editorial */
+@utility scroll-cue {
+  animation: scroll-cue-drift 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes scroll-cue-drift {
+  0%, 100% { transform: translate(-50%, 0); opacity: 0.55; }
+  50%      { transform: translate(-50%, 10px); opacity: 1; }
+}
+
+
 
 
 /* ============================================================

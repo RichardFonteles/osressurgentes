@@ -172,35 +172,89 @@ function SectionTitle({ children, className = "" }: { children: ReactNode; class
 /* ------------ nav ------------ */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 40);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
+
+  const links: [string, string][] = [
+    ["#limbo", "Limbo"],
+    ["#correntes", "Correntes"],
+    ["#travessia", "Travessia"],
+    ["#manifesto", "Manifesto"],
+  ];
+
   return (
     <header
-      className="fixed inset-x-0 top-0 z-40 transition-all duration-500"
+      className="fixed inset-x-0 top-0 z-40"
       style={{
-        backgroundColor: scrolled ? "rgba(13,15,14,0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+        backgroundColor: scrolled || open ? "rgba(13,15,14,0.78)" : "transparent",
+        backdropFilter: scrolled || open ? "blur(14px) saturate(120%)" : "none",
+        borderBottom: `1px solid ${scrolled || open ? "rgba(240,234,223,0.08)" : "transparent"}`,
+        transition: "background-color 640ms var(--ease-out-editorial), backdrop-filter 640ms var(--ease-out-editorial), border-color 640ms var(--ease-out-editorial), padding 320ms var(--ease-out-editorial)",
+        paddingBlock: scrolled ? "0.75rem" : "1.25rem",
       }}
     >
-      <div className="container-editorial flex items-center justify-between py-5">
-        <a href="#top" className="flex items-center gap-3" style={{ color: "var(--ivory)" }}>
-          <img src={logoAsset.url} alt="Os Ressurgentes" className="h-10 w-10 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
-          <span className="serif text-sm tracking-[0.32em] uppercase hidden sm:inline">OS RESSURGENTES</span>
+      <div className="container-editorial flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-3 ds-focus" style={{ color: "var(--ivory)" }} aria-label="Os Ressurgentes — início">
+          <img src={logoAsset.url} alt="" aria-hidden className="h-9 w-9 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+          <span className="serif text-[0.78rem] tracking-[0.34em] uppercase hidden sm:inline">Os Ressurgentes</span>
         </a>
-        <nav className="hidden gap-8 text-xs uppercase tracking-[0.24em] md:flex" style={{ color: "var(--muted-foreground)" }}>
-          <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">Limbo</a>
-          <a href="#correntes" className="hover:text-[color:var(--gold)] transition-colors">Correntes</a>
-          <a href="#travessia" className="hover:text-[color:var(--gold)] transition-colors">Travessia</a>
-          <a href="#manifesto" className="hover:text-[color:var(--gold)] transition-colors">Manifesto</a>
+
+        <nav className="hidden md:flex items-center gap-9" aria-label="Navegação principal">
+          {links.map(([href, label]) => (
+            <a key={href} href={href} className="ds-nav-link">{label}</a>
+          ))}
         </nav>
-        <a href={CTA_URL} className="text-xs uppercase tracking-[0.24em]" style={{ color: "var(--gold)" }}>
-          Solicitar entrevista →
-        </a>
+
+        <div className="flex items-center gap-3">
+          <a href={CTA_URL} className="ds-btn ds-btn-primary hidden md:inline-flex" style={{ padding: "0.65rem 1.15rem", fontSize: "0.7rem" }}>
+            Solicitar entrevista
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            className="md:hidden ds-focus grid h-10 w-10 place-items-center"
+            style={{ color: "var(--ivory)" }}
+          >
+            <span className="relative block h-[2px] w-6" style={{ backgroundColor: "currentColor", transform: open ? "translateY(0) rotate(45deg)" : "translateY(-5px)", transition: "transform 320ms var(--ease-out-editorial)" }} />
+            <span className="absolute block h-[2px] w-6" style={{ backgroundColor: "currentColor", transform: open ? "translateY(0) rotate(-45deg)" : "translateY(5px)", transition: "transform 320ms var(--ease-out-editorial)" }} />
+          </button>
+        </div>
+      </div>
+
+      {/* Sheet mobile */}
+      <div
+        className="md:hidden overflow-hidden"
+        style={{
+          maxHeight: open ? "80vh" : "0px",
+          transition: "max-height 480ms var(--ease-out-editorial)",
+        }}
+      >
+        <nav className="container-editorial flex flex-col gap-1 pb-8 pt-4" aria-label="Navegação mobile">
+          {links.map(([href, label]) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              className="serif text-2xl py-3"
+              style={{ color: "var(--ivory)", borderBottom: "1px solid var(--border)" }}
+            >
+              {label}
+            </a>
+          ))}
+          <a href={CTA_URL} onClick={() => setOpen(false)} className="ds-btn ds-btn-primary mt-6">
+            Solicitar entrevista
+          </a>
+        </nav>
       </div>
     </header>
   );
@@ -339,15 +393,15 @@ function Landing() {
               Descer ao fundo. Ressurgir transformado.
             </p>
             <div className="mt-12 flex flex-wrap gap-4 reveal">
-              <a href={CTA_URL} className="btn-primary">Solicitar entrevista</a>
-              <a href="#travessia" className="btn-ghost">Conhecer a Travessia</a>
+              <a href={CTA_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
+              <a href="#travessia" className="ds-btn ds-btn-ghost">Conhecer a Travessia</a>
             </div>
             <p className="mt-6 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
               Vagas por entrevista · sem venda automática
             </p>
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-xs uppercase tracking-[0.4em] animate-pulse" style={{ color: "var(--sand)" }}>
+        <div className="scroll-cue absolute bottom-8 left-1/2 z-10 text-[0.65rem] uppercase tracking-[0.42em]" style={{ color: "var(--sand)" }} aria-hidden>
           role para descer
         </div>
       </section>
