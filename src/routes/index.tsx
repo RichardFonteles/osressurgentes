@@ -685,17 +685,17 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>pode ser para você</Eyebrow>
             <h3 className="serif text-3xl md:text-4xl leading-snug" style={{ color: "var(--ivory)" }}>
-              Esta Travessia pode ser para você se…
+              Pode ser para você se…
             </h3>
             <ul className="mt-10 space-y-4 text-base md:text-lg" style={{ color: "rgba(240,234,223,0.82)" }}>
               {[
-                "você já compreendeu muito, mas ainda não conseguiu transformar compreensão em movimento;",
+                "entendeu muito — e ainda não virou movimento;",
                 "sente que vive abaixo do que poderia construir;",
-                "percebe que existem padrões se repetindo;",
-                "cansou de buscar apenas motivação;",
-                "deseja atravessar suas Sombras sem ser julgado;",
-                "quer assumir responsabilidade pela própria vida;",
-                "deseja caminhar ao lado de homens que também decidiram sair do Limbo.",
+                "reconhece padrões que se repetem;",
+                "cansou de só se motivar;",
+                "quer atravessar as Sombras sem ser julgado;",
+                "está pronto para assumir a própria vida;",
+                "quer caminhar ao lado de homens em Travessia.",
               ].map((t) => (
                 <li key={t} className="flex gap-4">
                   <span className="mt-3 h-px w-4 shrink-0" style={{ backgroundColor: "var(--gold)" }} />
