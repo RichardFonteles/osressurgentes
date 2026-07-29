@@ -6,6 +6,7 @@ import mentorPortrait from "@/assets/mentor-portrait-clean.jpg";
 import horizon from "@/assets/horizon.jpg";
 import moss from "@/assets/moss.jpg";
 import logoOriginal from "@/assets/logo-transparent.png.asset.json";
+import heroVideo from "@/assets/ressurgentes-hero.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -545,6 +546,30 @@ function Landing() {
           <p className="serif mt-16 text-3xl md:text-4xl italic leading-snug reveal" style={{ color: "var(--gold)" }}>
             Muitos ouvirão.<br />Poucos atravessam.
           </p>
+        </div>
+      </section>
+
+      {/* ============ VÍDEO — A FLORESTA ============ */}
+      <section className="relative overflow-hidden py-24 md:py-32" style={{ backgroundColor: "var(--ink)" }}>
+        <div className="container-editorial max-w-5xl">
+          <div className="mb-10 max-w-2xl reveal">
+            <p className="label-eyebrow mb-4" style={{ color: "var(--gold)" }}>a travessia em movimento</p>
+            <h2 className="text-display text-[clamp(1.75rem,3.6vw,2.75rem)]" style={{ color: "var(--ivory)" }}>
+              Antes da luz, a floresta.
+            </h2>
+          </div>
+          <div className="relative overflow-hidden rounded-sm reveal-scale" style={{ boxShadow: "var(--elev-3)", border: "1px solid hsl(var(--gold) / 0.2)" }}>
+            <video
+              src={heroVideo.url}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="block h-full w-full object-cover aspect-video"
+            />
+            <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(13,15,14,0.15) 0%, rgba(13,15,14,0) 40%, rgba(13,15,14,0.55) 100%)" }} />
+          </div>
         </div>
       </section>
 
