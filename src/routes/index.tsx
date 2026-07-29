@@ -319,19 +319,18 @@ function Landing() {
         <div className="mist-overlay" />
         <div className="container-editorial relative z-10 pt-32 pb-24">
           <div className="max-w-3xl">
-            <p className="label-eyebrow mb-8 reveal">OS RESSURGENTES</p>
+            <p className="label-eyebrow mb-8 reveal">OS RESSURGENTES · uma travessia para homens</p>
             <h1
               className="text-display text-[clamp(2.4rem,6.4vw,5.6rem)] reveal"
               style={{ color: "var(--ivory)" }}
             >
-              Não é sobre voltar<br />a ser quem você era.
+              Você não está perdido.<br />Está no Limbo.
             </h1>
             <p
               className="mt-8 max-w-xl text-lg md:text-xl font-light leading-relaxed reveal"
               style={{ color: "rgba(240,234,223,0.78)" }}
             >
-              É sobre atravessar aquilo que ainda mantém você no Limbo e
-              reconstruir a vida a partir de uma nova identidade.
+              Uma mentoria para o homem que já entendeu tudo — e ainda não conseguiu se mover.
             </p>
             <p
               className="serif mt-10 text-xl italic reveal"
@@ -340,13 +339,16 @@ function Landing() {
               Descer ao fundo. Ressurgir transformado.
             </p>
             <div className="mt-12 flex flex-wrap gap-4 reveal">
-              <a href={CTA_URL} className="btn-primary">Responder ao chamado</a>
+              <a href={CTA_URL} className="btn-primary">Solicitar entrevista</a>
               <a href="#travessia" className="btn-ghost">Conhecer a Travessia</a>
             </div>
+            <p className="mt-6 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
+              Vagas por entrevista · sem venda automática
+            </p>
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-xs uppercase tracking-[0.4em] animate-pulse" style={{ color: "var(--sand)" }}>
-          desça
+          role para descer
         </div>
       </section>
 
