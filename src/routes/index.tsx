@@ -407,23 +407,23 @@ function Landing() {
           <div className="max-w-3xl reveal">
             <Eyebrow>correntes invisíveis</Eyebrow>
             <SectionTitle>
-              Você não está sem capacidade.<br />
-              <span style={{ color: "var(--sand)" }}>Pode estar preso por Correntes Invisíveis.</span>
+              Não é falta de capacidade.<br />
+              <span style={{ color: "var(--sand)" }}>São Correntes Invisíveis.</span>
             </SectionTitle>
             <div className="mt-10 space-y-4 text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.78)" }}>
-              <p>Elas não aparecem no corpo.<br />Não fazem barulho.<br />Não impedem você de trabalhar.</p>
-              <p>Apenas mantêm sua vida girando em torno dos mesmos padrões.</p>
+              <p>Elas não aparecem no corpo.<br />Não fazem barulho.<br />Não te impedem de trabalhar.</p>
+              <p>Só mantêm tudo girando no mesmo eixo.</p>
             </div>
           </div>
 
           <div className="mt-20 grid gap-px md:grid-cols-2 lg:grid-cols-3" style={{ backgroundColor: "var(--border)" }}>
             {[
-              ["Corrente da Aprovação", "Você adia decisões porque ainda teme a reação dos outros."],
-              ["Corrente da Espera", "Você espera clareza, força ou segurança antes de começar."],
-              ["Corrente do Controle", "Você tenta prever tudo para não correr o risco de se expor."],
-              ["Corrente da Dispersão", "Você se mantém ocupado para não encarar o movimento que realmente importa."],
-              ["Corrente da Culpa", "Você continua pagando emocionalmente por histórias que já deveriam ter terminado."],
-              ["Corrente do Medo", "Você aprendeu a chamar de prudência aquilo que é, silenciosamente, adiamento."],
+              ["Aprovação", "Adia decisões pra não decepcionar ninguém."],
+              ["Espera", "Espera clareza, força ou segurança para começar."],
+              ["Controle", "Tenta prever tudo pra não se expor."],
+              ["Dispersão", "Se ocupa demais pra não encarar o essencial."],
+              ["Culpa", "Ainda paga por histórias que já deviam ter terminado."],
+              ["Medo", "Chama de prudência o que é, em silêncio, adiamento."],
             ].map(([title, body], i) => (
               <article
                 key={title}
