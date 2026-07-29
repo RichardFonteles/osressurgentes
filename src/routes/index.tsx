@@ -19,7 +19,7 @@ const CONTACT_URL = "https://wa.me/";
 /* ------------ hooks ------------ */
 function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-left, .reveal-scale");
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -29,11 +29,94 @@ function useReveal() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+      { threshold: 0.15, rootMargin: "0px 0px -80px 0px" },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+}
+
+/**
+ * useParallax — deslocamento vertical sutil em elementos [data-parallax].
+ * `data-parallax="0.15"` → 15% da distância entre o centro do elemento e
+ * o centro da viewport. Usa rAF + IntersectionObserver para só calcular
+ * quando visível. Respeita prefers-reduced-motion.
+ */
+function useParallax() {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
+    if (!nodes.length) return;
+
+    const visible = new Set<HTMLElement>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const el = e.target as HTMLElement;
+          if (e.isIntersecting) visible.add(el);
+          else visible.delete(el);
+        });
+      },
+      { rootMargin: "200px 0px" },
+    );
+    nodes.forEach((n) => io.observe(n));
+
+    let raf = 0;
+    let ticking = false;
+    const update = () => {
+      const vh = window.innerHeight;
+      visible.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const delta = center - vh / 2;
+        const speed = parseFloat(el.dataset.parallax || "0.12");
+        el.style.setProperty("--py", `${(-delta * speed).toFixed(1)}px`);
+      });
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+      io.disconnect();
+    };
+  }, []);
+}
+
+/**
+ * useScrollProgress — atualiza a variável --sp (0..1) no elemento .scroll-progress
+ * conforme a página é rolada. Barra dourada fina no topo, guia sem distrair.
+ */
+function useScrollProgress(ref: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    let raf = 0;
+    let ticking = false;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      if (ref.current) ref.current.style.setProperty("--sp", p.toString());
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, [ref]);
 }
 
 /* ------------ small components ------------ */
