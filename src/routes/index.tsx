@@ -339,7 +339,7 @@ function Landing() {
 
       {/* ============ LIMBO ============ */}
       <section id="limbo" className="relative overflow-hidden py-32 md:py-44" style={{ backgroundColor: "var(--forest)" }}>
-        <img src={moss} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-20" loading="lazy" />
+        <img src={moss} alt="" aria-hidden data-parallax="0.12" className="parallax-y absolute inset-0 h-[120%] w-full -top-[10%] object-cover opacity-20" loading="lazy" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink), transparent 30%, transparent 70%, var(--ink))" }} />
         <div className="container-editorial relative max-w-3xl">
           <div className="reveal">
