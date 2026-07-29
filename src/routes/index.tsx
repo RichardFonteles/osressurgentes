@@ -157,7 +157,24 @@ function Landing() {
 
   return (
     <div id="top" style={{ backgroundColor: "var(--ink)", color: "var(--ivory)" }}>
+      {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo */}
+      <div
+        aria-hidden
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+          opacity: 0.55,
+        }}
+      >
+        <Suspense fallback={null}>
+          <ForestScene />
+        </Suspense>
+      </div>
+      <div style={{ position: "relative", zIndex: 1 }}>
       <Nav />
+
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-screen items-center overflow-hidden">
