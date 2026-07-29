@@ -10,7 +10,36 @@ import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
+  head: () => ({
+    links: [
+      // LCP hint — pré-carrega a imagem do hero em alta prioridade
+      { rel: "preload", as: "image", href: heroForest, fetchpriority: "high" } as any,
+    ],
+  }),
 });
+
+/**
+ * useDeferredMount — só monta o filho depois que o browser está ocioso
+ * (ou após 1s de fallback). Reduz TBT e libera a thread para o LCP.
+ * Também respeita Save-Data e telas muito pequenas: se `skip` for true,
+ * nunca monta.
+ */
+function useDeferredMount(skip = false) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if (skip) return;
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+    if (ric) {
+      const id = ric(() => setReady(true), { timeout: 1500 });
+      return () => (window as any).cancelIdleCallback?.(id);
+    }
+    const t = setTimeout(() => setReady(true), 800);
+    return () => clearTimeout(t);
+  }, [skip]);
+  return ready;
+}
 
 // Configuração de CTAs — edite estas URLs livremente
 const CTA_URL = "#convocacao";
