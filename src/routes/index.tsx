@@ -387,10 +387,10 @@ function Landing() {
             <SectionTitle>O Limbo não parece uma prisão.</SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Você continua trabalhando.<br />Continua estudando.<br />Continua cuidando de tudo.</p>
-            <p>Por fora, a vida segue.</p>
-            <p>Por dentro, algo permanece suspenso.</p>
-            <p>Você sente que existe uma vida esperando por você, mas ela nunca começa.</p>
+            <p>Você trabalha.<br />Você entrega.<br />Você cuida de todos.</p>
+            <p>Por fora, a vida anda.</p>
+            <p>Por dentro, alguma coisa ficou suspensa.</p>
+            <p>Existe uma vida esperando por você — e ela nunca começa.</p>
           </div>
           <blockquote
             className="serif mt-16 border-l-2 pl-8 text-2xl md:text-3xl italic leading-snug reveal"
