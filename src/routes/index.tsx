@@ -5,7 +5,7 @@ import heroForest from "@/assets/hero-forest.jpg";
 import mentorPortrait from "@/assets/mentor-portrait-clean.jpg";
 import horizon from "@/assets/horizon.jpg";
 import moss from "@/assets/moss.jpg";
-import logoWhite from "@/assets/logo-white.png";
+import logoOriginal from "@/assets/logo-original.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -202,7 +202,9 @@ function Nav() {
     >
       <div className="container-editorial flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3 ds-focus" style={{ color: "var(--ivory)" }} aria-label="Os Ressurgentes — início">
-          <img src={logoWhite} alt="" aria-hidden className="h-9 w-9 object-contain" />
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[hsl(var(--ivory))] ring-1 ring-[hsl(var(--gold)/0.35)]">
+            <img src={logoOriginal.url} alt="" aria-hidden className="h-7 w-7 object-contain" />
+          </span>
           <span className="serif text-[0.78rem] tracking-[0.34em] uppercase hidden sm:inline">Os Ressurgentes</span>
         </a>
 
@@ -816,7 +818,9 @@ function Landing() {
           <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
             <div>
               <div className="flex items-center gap-4">
-                <img src={logoWhite} alt="Os Ressurgentes" className="h-14 w-14 object-contain" />
+                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--ivory))] ring-1 ring-[hsl(var(--gold)/0.4)]">
+                  <img src={logoOriginal.url} alt="Os Ressurgentes" className="h-12 w-12 object-contain" />
+                </span>
                 <div>
                   <p className="serif text-lg tracking-[0.24em] uppercase" style={{ color: "var(--ivory)" }}>OS RESSURGENTES</p>
                   <p className="serif mt-1 italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
