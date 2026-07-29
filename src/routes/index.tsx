@@ -19,7 +19,7 @@ const CONTACT_URL = "https://wa.me/";
 /* ------------ hooks ------------ */
 function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-left, .reveal-scale");
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -29,11 +29,94 @@ function useReveal() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+      { threshold: 0.15, rootMargin: "0px 0px -80px 0px" },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+}
+
+/**
+ * useParallax — deslocamento vertical sutil em elementos [data-parallax].
+ * `data-parallax="0.15"` → 15% da distância entre o centro do elemento e
+ * o centro da viewport. Usa rAF + IntersectionObserver para só calcular
+ * quando visível. Respeita prefers-reduced-motion.
+ */
+function useParallax() {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
+    if (!nodes.length) return;
+
+    const visible = new Set<HTMLElement>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const el = e.target as HTMLElement;
+          if (e.isIntersecting) visible.add(el);
+          else visible.delete(el);
+        });
+      },
+      { rootMargin: "200px 0px" },
+    );
+    nodes.forEach((n) => io.observe(n));
+
+    let raf = 0;
+    let ticking = false;
+    const update = () => {
+      const vh = window.innerHeight;
+      visible.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const delta = center - vh / 2;
+        const speed = parseFloat(el.dataset.parallax || "0.12");
+        el.style.setProperty("--py", `${(-delta * speed).toFixed(1)}px`);
+      });
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+      io.disconnect();
+    };
+  }, []);
+}
+
+/**
+ * useScrollProgress — atualiza a variável --sp (0..1) no elemento .scroll-progress
+ * conforme a página é rolada. Barra dourada fina no topo, guia sem distrair.
+ */
+function useScrollProgress(ref: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    let raf = 0;
+    let ticking = false;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      if (ref.current) ref.current.style.setProperty("--sp", p.toString());
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, [ref]);
 }
 
 /* ------------ small components ------------ */
@@ -153,10 +236,16 @@ function ManifestoModal({ open, onClose }: { open: boolean; onClose: () => void 
 /* ============================================================= */
 function Landing() {
   useReveal();
+  useParallax();
+  const progressRef = useRef<HTMLDivElement | null>(null);
+  useScrollProgress(progressRef);
   const [manifestoOpen, setManifestoOpen] = useState(false);
 
   return (
     <div id="top" style={{ backgroundColor: "var(--ink)", color: "var(--ivory)" }}>
+      {/* Barra de progresso do scroll — guia sutil, dourada */}
+      <div ref={progressRef} className="scroll-progress" aria-hidden />
+
       {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo */}
       <div
         aria-hidden
@@ -181,7 +270,8 @@ function Landing() {
         <img
           src={heroForest}
           alt="Homem caminhando por uma floresta escura enevoada"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="parallax-y absolute inset-0 h-[115%] w-full -top-[7%] object-cover"
+          data-parallax="0.18"
           width={1920}
           height={1280}
         />
@@ -249,7 +339,7 @@ function Landing() {
 
       {/* ============ LIMBO ============ */}
       <section id="limbo" className="relative overflow-hidden py-32 md:py-44" style={{ backgroundColor: "var(--forest)" }}>
-        <img src={moss} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-20" loading="lazy" />
+        <img src={moss} alt="" aria-hidden data-parallax="0.12" className="parallax-y absolute inset-0 h-[120%] w-full -top-[10%] object-cover opacity-20" loading="lazy" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink), transparent 30%, transparent 70%, var(--ink))" }} />
         <div className="container-editorial relative max-w-3xl">
           <div className="reveal">
@@ -298,7 +388,7 @@ function Landing() {
               <article
                 key={title}
                 className="reveal group p-10 transition-colors duration-500 hover:bg-[color:var(--forest)]"
-                style={{ backgroundColor: "var(--ink)", transitionDelay: `${i * 60}ms` }}
+                style={{ backgroundColor: "var(--ink)", ["--reveal-delay" as string]: `${i * 90}ms` }}
               >
                 <div className="mb-6 flex items-center gap-3">
                   <span className="serif text-sm" style={{ color: "var(--gold)" }}>0{i + 1}</span>
@@ -367,7 +457,7 @@ function Landing() {
 
       {/* ============ O MOMENTO ============ */}
       <section className="relative overflow-hidden py-40 md:py-56">
-        <img src={horizon} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" />
+        <img src={horizon} alt="" aria-hidden data-parallax="0.2" className="parallax-y absolute inset-0 h-[125%] w-full -top-[12%] object-cover opacity-40" loading="lazy" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink) 0%, rgba(13,15,14,0.6) 30%, rgba(13,15,14,0.6) 70%, var(--ink) 100%)" }} />
         <div className="container-editorial relative max-w-3xl text-center">
           <p className="label-eyebrow mb-8 reveal" style={{ color: "var(--gold)" }}>o momento</p>
@@ -408,7 +498,7 @@ function Landing() {
               ["Reconstruir a Identidade", "Deixar de reagir ao passado e começar a construir o futuro."],
               ["Ressurgir", "Não voltar a ser quem era, mas viver a partir de uma nova posição."],
             ].map(([title, body], i) => (
-              <li key={title} className="reveal relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)" }}>
+              <li key={title} className="reveal-left relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
                 <span
                   className="serif absolute -left-[1px] top-0 -translate-x-1/2 grid h-10 w-10 place-items-center rounded-full text-sm"
                   style={{ backgroundColor: "var(--ink)", color: "var(--gold)", border: "1px solid var(--gold)" }}
@@ -629,7 +719,7 @@ function Landing() {
 
       {/* ============ CONVOCAÇÃO FINAL ============ */}
       <section id="convocacao" className="relative overflow-hidden py-40 md:py-56">
-        <img src={horizon} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <img src={horizon} alt="" aria-hidden data-parallax="0.22" className="parallax-y absolute inset-0 h-[125%] w-full -top-[12%] object-cover" loading="lazy" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink) 0%, rgba(13,15,14,0.45) 40%, rgba(13,15,14,0.75) 100%)" }} />
         <div className="container-editorial relative max-w-3xl text-center">
           <p className="label-eyebrow mb-10 reveal" style={{ color: "var(--gold)" }}>a convocação</p>
