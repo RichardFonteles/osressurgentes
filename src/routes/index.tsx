@@ -236,10 +236,16 @@ function ManifestoModal({ open, onClose }: { open: boolean; onClose: () => void 
 /* ============================================================= */
 function Landing() {
   useReveal();
+  useParallax();
+  const progressRef = useRef<HTMLDivElement | null>(null);
+  useScrollProgress(progressRef);
   const [manifestoOpen, setManifestoOpen] = useState(false);
 
   return (
     <div id="top" style={{ backgroundColor: "var(--ink)", color: "var(--ivory)" }}>
+      {/* Barra de progresso do scroll — guia sutil, dourada */}
+      <div ref={progressRef} className="scroll-progress" aria-hidden />
+
       {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo */}
       <div
         aria-hidden
