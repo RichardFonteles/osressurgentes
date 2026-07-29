@@ -707,18 +707,18 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>não é para</Eyebrow>
             <h3 className="serif text-3xl md:text-4xl leading-snug" style={{ color: "var(--ivory)" }}>
-              Esta Travessia não é para quem procura…
+              Não é para quem procura…
             </h3>
             <ul className="mt-10 space-y-4 text-base md:text-lg" style={{ color: "rgba(240,234,223,0.6)" }}>
               {[
-                "um salvador;",
-                "um guru;",
+                "salvador;",
+                "guru;",
                 "respostas prontas;",
                 "motivação passageira;",
-                "fórmulas universais;",
-                "culpados;",
-                "atalhos sem responsabilidade;",
-                "um lugar para permanecer na dor sem se mover.",
+                "fórmula universal;",
+                "culpado externo;",
+                "atalho sem responsabilidade;",
+                "conforto para permanecer na dor.",
               ].map((t) => (
                 <li key={t} className="flex gap-4">
                   <span className="mt-3 h-px w-4 shrink-0" style={{ backgroundColor: "var(--muted-foreground)" }} />
@@ -727,7 +727,7 @@ function Landing() {
               ))}
             </ul>
             <p className="serif mt-10 text-lg italic" style={{ color: "var(--sand)" }}>
-              Cada homem tem seu tempo. Ouvir o chamado não significa estar pronto para atravessar.
+              Ouvir o chamado não é o mesmo que estar pronto para atravessar.
             </p>
           </div>
         </div>
