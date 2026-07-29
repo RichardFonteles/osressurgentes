@@ -193,13 +193,13 @@ function Nav() {
           <span className="serif text-sm tracking-[0.32em] uppercase hidden sm:inline">OS RESSURGENTES</span>
         </a>
         <nav className="hidden gap-8 text-xs uppercase tracking-[0.24em] md:flex" style={{ color: "var(--muted-foreground)" }}>
-          <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">O Limbo</a>
+          <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">Limbo</a>
           <a href="#correntes" className="hover:text-[color:var(--gold)] transition-colors">Correntes</a>
-          <a href="#travessia" className="hover:text-[color:var(--gold)] transition-colors">A Travessia</a>
+          <a href="#travessia" className="hover:text-[color:var(--gold)] transition-colors">Travessia</a>
           <a href="#manifesto" className="hover:text-[color:var(--gold)] transition-colors">Manifesto</a>
         </nav>
         <a href={CTA_URL} className="text-xs uppercase tracking-[0.24em]" style={{ color: "var(--gold)" }}>
-          Responder ao chamado
+          Solicitar entrevista →
         </a>
       </div>
     </header>
@@ -319,19 +319,18 @@ function Landing() {
         <div className="mist-overlay" />
         <div className="container-editorial relative z-10 pt-32 pb-24">
           <div className="max-w-3xl">
-            <p className="label-eyebrow mb-8 reveal">OS RESSURGENTES</p>
+            <p className="label-eyebrow mb-8 reveal">OS RESSURGENTES · uma travessia para homens</p>
             <h1
               className="text-display text-[clamp(2.4rem,6.4vw,5.6rem)] reveal"
               style={{ color: "var(--ivory)" }}
             >
-              Não é sobre voltar<br />a ser quem você era.
+              Você não está perdido.<br />Está no Limbo.
             </h1>
             <p
               className="mt-8 max-w-xl text-lg md:text-xl font-light leading-relaxed reveal"
               style={{ color: "rgba(240,234,223,0.78)" }}
             >
-              É sobre atravessar aquilo que ainda mantém você no Limbo e
-              reconstruir a vida a partir de uma nova identidade.
+              Uma mentoria para o homem que já entendeu tudo — e ainda não conseguiu se mover.
             </p>
             <p
               className="serif mt-10 text-xl italic reveal"
@@ -340,13 +339,16 @@ function Landing() {
               Descer ao fundo. Ressurgir transformado.
             </p>
             <div className="mt-12 flex flex-wrap gap-4 reveal">
-              <a href={CTA_URL} className="btn-primary">Responder ao chamado</a>
+              <a href={CTA_URL} className="btn-primary">Solicitar entrevista</a>
               <a href="#travessia" className="btn-ghost">Conhecer a Travessia</a>
             </div>
+            <p className="mt-6 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
+              Vagas por entrevista · sem venda automática
+            </p>
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-xs uppercase tracking-[0.4em] animate-pulse" style={{ color: "var(--sand)" }}>
-          desça
+          role para descer
         </div>
       </section>
 
@@ -356,24 +358,21 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>o espelho</Eyebrow>
             <SectionTitle>
-              Você já entendeu muita coisa.<br />
-              <span style={{ color: "var(--sand)" }}>Mas ainda não conseguiu sair do lugar.</span>
+              Você entendeu.<br />
+              <span style={{ color: "var(--sand)" }}>E ainda não se moveu.</span>
             </SectionTitle>
           </div>
           <div className="mt-12 space-y-5 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Você já estudou.</p>
-            <p>Já tentou mudar.</p>
-            <p>Já começou mais de uma vez.</p>
-            <p>Já prometeu a si mesmo que seria diferente.</p>
+            <p>Estudou.</p>
+            <p>Tentou.</p>
+            <p>Recomeçou.</p>
+            <p>Prometeu a si mesmo — de novo.</p>
           </div>
           <p className="mt-10 max-w-2xl text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.7)" }}>
-            Mesmo assim, continua vivendo entre o cansaço, a confusão e o adiamento.
-          </p>
-          <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.7)" }}>
-            Não porque você seja incapaz.
+            E continua no mesmo lugar. Não por incapacidade.
           </p>
           <p className="serif mt-10 max-w-2xl text-2xl md:text-3xl italic leading-snug reveal" style={{ color: "var(--ivory)" }}>
-            Talvez existam <span style={{ color: "var(--gold)" }}>Correntes Invisíveis</span> decidindo sua vida enquanto você acredita que ainda está no controle.
+            Algo invisível ainda decide por você — enquanto você jura que está no <span style={{ color: "var(--gold)" }}>controle</span>.
           </p>
         </div>
       </section>
@@ -388,16 +387,16 @@ function Landing() {
             <SectionTitle>O Limbo não parece uma prisão.</SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Você continua trabalhando.<br />Continua estudando.<br />Continua cuidando de tudo.</p>
-            <p>Por fora, a vida segue.</p>
-            <p>Por dentro, algo permanece suspenso.</p>
-            <p>Você sente que existe uma vida esperando por você, mas ela nunca começa.</p>
+            <p>Você trabalha.<br />Você entrega.<br />Você cuida de todos.</p>
+            <p>Por fora, a vida anda.</p>
+            <p>Por dentro, alguma coisa ficou suspensa.</p>
+            <p>Existe uma vida esperando por você — e ela nunca começa.</p>
           </div>
           <blockquote
             className="serif mt-16 border-l-2 pl-8 text-2xl md:text-3xl italic leading-snug reveal"
             style={{ borderColor: "var(--gold)", color: "var(--ivory)" }}
           >
-            O Limbo é o lugar onde um homem continua funcionando, mas já não se reconhece inteiramente na própria vida.
+            O Limbo é onde o homem continua funcionando — e já não se reconhece na própria vida.
           </blockquote>
         </div>
       </section>
@@ -408,23 +407,23 @@ function Landing() {
           <div className="max-w-3xl reveal">
             <Eyebrow>correntes invisíveis</Eyebrow>
             <SectionTitle>
-              Você não está sem capacidade.<br />
-              <span style={{ color: "var(--sand)" }}>Pode estar preso por Correntes Invisíveis.</span>
+              Não é falta de capacidade.<br />
+              <span style={{ color: "var(--sand)" }}>São Correntes Invisíveis.</span>
             </SectionTitle>
             <div className="mt-10 space-y-4 text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.78)" }}>
-              <p>Elas não aparecem no corpo.<br />Não fazem barulho.<br />Não impedem você de trabalhar.</p>
-              <p>Apenas mantêm sua vida girando em torno dos mesmos padrões.</p>
+              <p>Elas não aparecem no corpo.<br />Não fazem barulho.<br />Não te impedem de trabalhar.</p>
+              <p>Só mantêm tudo girando no mesmo eixo.</p>
             </div>
           </div>
 
           <div className="mt-20 grid gap-px md:grid-cols-2 lg:grid-cols-3" style={{ backgroundColor: "var(--border)" }}>
             {[
-              ["Corrente da Aprovação", "Você adia decisões porque ainda teme a reação dos outros."],
-              ["Corrente da Espera", "Você espera clareza, força ou segurança antes de começar."],
-              ["Corrente do Controle", "Você tenta prever tudo para não correr o risco de se expor."],
-              ["Corrente da Dispersão", "Você se mantém ocupado para não encarar o movimento que realmente importa."],
-              ["Corrente da Culpa", "Você continua pagando emocionalmente por histórias que já deveriam ter terminado."],
-              ["Corrente do Medo", "Você aprendeu a chamar de prudência aquilo que é, silenciosamente, adiamento."],
+              ["Aprovação", "Adia decisões pra não decepcionar ninguém."],
+              ["Espera", "Espera clareza, força ou segurança para começar."],
+              ["Controle", "Tenta prever tudo pra não se expor."],
+              ["Dispersão", "Se ocupa demais pra não encarar o essencial."],
+              ["Culpa", "Ainda paga por histórias que já deviam ter terminado."],
+              ["Medo", "Chama de prudência o que é, em silêncio, adiamento."],
             ].map(([title, body], i) => (
               <article
                 key={title}
@@ -442,7 +441,7 @@ function Landing() {
           </div>
 
           <p className="mx-auto mt-16 max-w-2xl text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Cada homem carrega combinações diferentes. A Travessia começa quando aquilo que era invisível passa a ser reconhecido.
+            Cada homem carrega a sua combinação. A Travessia começa quando o invisível é nomeado.
           </p>
         </div>
       </section>
@@ -459,16 +458,16 @@ function Landing() {
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
             <p>Sombras não são defeitos a eliminar.</p>
-            <p>São desejos, emoções, dores e forças internas que foram reprimidas, negadas ou mal compreendidas.</p>
-            <p>Quando um homem foge das próprias Sombras, elas dirigem sua vida em silêncio.</p>
-            <p>Quando ele aprende a atravessá-las, aquilo que o ameaçava pode se tornar consciência, beleza e realização.</p>
+            <p>São desejos, emoções e forças que foram reprimidas — e agora dirigem sua vida em silêncio.</p>
+            <p>Quem foge delas, obedece. Quem atravessa, integra.</p>
+            <p>O que ameaçava vira consciência, beleza e realização.</p>
           </div>
           <blockquote
             className="serif mt-16 text-2xl md:text-3xl italic leading-snug reveal"
             style={{ color: "var(--ivory)" }}
           >
             <span style={{ color: "var(--gold)" }}>“</span>
-            Ajudo homens a atravessarem suas sombras, integrarem seus desejos e transformarem suas emoções em consciência, beleza e realização.
+            Ajudo homens a atravessar suas sombras, integrar seus desejos e transformar sua intensidade em consciência, beleza e realização.
             <span style={{ color: "var(--gold)" }}>”</span>
             <footer className="mt-6 text-xs uppercase tracking-[0.32em] not-italic" style={{ color: "var(--sand)" }}>
               — o.gentólogo
@@ -482,16 +481,16 @@ function Landing() {
         <div className="container-editorial max-w-3xl">
           <div className="reveal">
             <Eyebrow>o chamado</Eyebrow>
-            <SectionTitle>Nem todo homem percebe quando a vida o chama.</SectionTitle>
+            <SectionTitle>Nem todo homem escuta quando é chamado.</SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
             <p>Alguns escutam e voltam para o conhecido.</p>
-            <p>Outros escutam, sentem medo e permanecem parados.</p>
-            <p>Poucos compreendem que o chamado não elimina o medo.</p>
-            <p>Apenas revela que continuar igual já custa demais.</p>
+            <p>Outros escutam, sentem medo e ficam.</p>
+            <p>Poucos entendem: o chamado não tira o medo.</p>
+            <p>Ele só mostra que continuar igual já custa mais caro.</p>
           </div>
           <p className="serif mt-16 text-3xl md:text-4xl italic leading-snug reveal" style={{ color: "var(--gold)" }}>
-            Muitos ouvirão.<br />Poucos aceitarão atravessar.
+            Muitos ouvirão.<br />Poucos atravessam.
           </p>
         </div>
       </section>
@@ -503,18 +502,18 @@ function Landing() {
         <div className="container-editorial relative max-w-3xl text-center">
           <p className="label-eyebrow mb-8 reveal" style={{ color: "var(--gold)" }}>o momento</p>
           <h2 className="text-display text-[clamp(2rem,5vw,4rem)] reveal" style={{ color: "var(--ivory)" }}>
-            E se este fosse o momento que separa quem você é hoje de quem ainda pode se tornar?
+            E se hoje for a linha entre quem você é e quem ainda pode se tornar?
           </h2>
           <div className="mx-auto mt-12 max-w-xl space-y-6 text-lg leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Alguns homens passam anos esperando uma oportunidade de mudar.</p>
-            <p>Até perceberem que a oportunidade não chega como certeza.</p>
-            <p style={{ color: "var(--gold)" }}>Ela chega como decisão.</p>
+            <p>Muitos esperam uma oportunidade para mudar.</p>
+            <p>Até entenderem que ela não chega como certeza.</p>
+            <p style={{ color: "var(--gold)" }}>Chega como decisão.</p>
           </div>
           <p className="serif mt-16 text-2xl md:text-3xl italic reveal" style={{ color: "var(--ivory)" }}>
-            Quando o momento chegar, você atravessa ou deixa que ele passe?
+            Você atravessa — ou deixa passar?
           </p>
           <div className="mt-12 reveal">
-            <a href={CTA_URL} className="btn-primary">Eu escolho atravessar</a>
+            <a href={CTA_URL} className="btn-primary">Escolho atravessar</a>
           </div>
         </div>
       </section>
@@ -525,19 +524,19 @@ function Landing() {
           <div className="max-w-3xl reveal">
             <Eyebrow>a travessia</Eyebrow>
             <SectionTitle>
-              A Travessia não entrega uma nova vida pronta.<br />
-              <span style={{ color: "var(--sand)" }}>Ela ajuda você a reconstruí-la.</span>
+              A Travessia não entrega uma vida pronta.<br />
+              <span style={{ color: "var(--sand)" }}>Devolve a autoria da sua.</span>
             </SectionTitle>
           </div>
 
           <ol className="mt-20 mx-auto max-w-3xl">
             {[
-              ["Reconhecer o Limbo", "Perceber onde sua vida ficou suspensa."],
-              ["Identificar as Correntes Invisíveis", "Nomear os padrões que ainda decidem por você."],
-              ["Atravessar as Sombras", "Reconhecer e integrar desejos, medos, dores e emoções."],
-              ["Assumir o Poder Criador", "Transformar consciência em decisão e movimento."],
-              ["Reconstruir a Identidade", "Deixar de reagir ao passado e começar a construir o futuro."],
-              ["Ressurgir", "Não voltar a ser quem era, mas viver a partir de uma nova posição."],
+              ["Reconhecer o Limbo", "Ver onde a sua vida ficou suspensa."],
+              ["Nomear as Correntes", "Identificar os padrões que ainda decidem por você."],
+              ["Atravessar as Sombras", "Integrar desejos, medos e emoções negados."],
+              ["Assumir o Poder Criador", "Transformar consciência em decisão."],
+              ["Reconstruir a Identidade", "Parar de reagir. Começar a construir."],
+              ["Ressurgir", "Não voltar a ser. Passar a existir de outro modo."],
             ].map(([title, body], i) => (
               <li key={title} className="reveal-left relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
                 <span
@@ -555,7 +554,7 @@ function Landing() {
           </ol>
 
           <p className="mx-auto mt-12 max-w-2xl text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Cada homem atravessa em seu próprio ritmo. Não há promessa linear. Há caminho.
+            Sem promessa linear. Cada homem no seu ritmo. Há caminho.
           </p>
         </div>
       </section>
@@ -565,18 +564,18 @@ function Landing() {
         <div className="container-editorial max-w-3xl">
           <div className="reveal">
             <Eyebrow>quem são</Eyebrow>
-            <SectionTitle>Os Ressurgentes não são homens que nunca caíram.</SectionTitle>
+            <SectionTitle>Não são homens que nunca caíram.</SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>São homens que decidiram não transformar a queda em morada.</p>
-            <p>Não procuram um salvador.</p>
-            <p>Não entregam a própria responsabilidade a um líder.</p>
+            <p>São homens que decidiram não morar na queda.</p>
+            <p>Não procuram salvador.</p>
+            <p>Não terceirizam a própria vida.</p>
             <p>Não negam suas Sombras.</p>
-            <p>Não esperam ausência de medo para agir.</p>
-            <p>Caminham juntos porque sabem que nenhuma Travessia precisa ser solitária.</p>
+            <p>Não esperam a ausência de medo para agir.</p>
+            <p>Caminham juntos porque nenhuma Travessia precisa ser solitária.</p>
           </div>
           <p className="serif mt-14 text-2xl md:text-3xl italic reveal" style={{ color: "var(--gold)" }}>
-            Uma comunidade não de homens prontos, mas de homens dispostos.
+            Não uma comunidade de prontos. Uma comunidade de dispostos.
           </p>
         </div>
       </section>
@@ -609,7 +608,7 @@ function Landing() {
           <div className="text-center reveal">
             <Eyebrow>a convocação</Eyebrow>
             <h2 className="text-display text-[clamp(1.8rem,4vw,3rem)]" style={{ color: "var(--ivory)" }}>
-              Assista ao Manifesto dos Ressurgentes.
+              O Manifesto dos Ressurgentes.
             </h2>
           </div>
           <div className="mt-14 group relative aspect-video overflow-hidden reveal cursor-pointer" style={{ backgroundColor: "var(--ink)" }}>
@@ -626,7 +625,7 @@ function Landing() {
             </div>
           </div>
           <p className="mx-auto mt-8 max-w-lg text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Este não é um vídeo sobre sucesso. É uma convocação para quem cansou de permanecer no mesmo lugar.
+            Não é sobre sucesso. É uma convocação para quem cansou de ficar parado.
           </p>
         </div>
       </section>
@@ -643,28 +642,25 @@ function Landing() {
           <div>
             <div className="reveal">
               <Eyebrow>minha travessia</Eyebrow>
-              <SectionTitle>Minha Travessia</SectionTitle>
+              <SectionTitle>Também atravesso.</SectionTitle>
             </div>
             <div className="serif mt-10 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
-              <p>Durante muito tempo eu acreditei que o problema era falta de conhecimento.</p>
-              <p>Então estudei. Li. Ensinei. Criei caminhos. Ajudei pessoas.</p>
-              <p>Mas, quando a porta se fechava, uma pergunta continuava voltando:</p>
-              <p className="italic" style={{ color: "var(--gold)" }}>Se eu sei tanto, por que continuo preso?</p>
-              <p>Foi quando compreendi que o Limbo não é falta de inteligência. É um lugar silencioso.</p>
-              <p>
-                Você continua funcionando. Continua trabalhando. Continua estudando. Continua cuidando de quem ama.
-              </p>
-              <p>Mas, por dentro, sente que existe uma vida esperando por você — e ela nunca começa.</p>
+              <p>Por muito tempo achei que faltava conhecimento.</p>
+              <p>Estudei. Li. Ensinei. Ajudei muitos.</p>
+              <p>Quando a porta se fechava, sempre a mesma pergunta:</p>
+              <p className="italic" style={{ color: "var(--gold)" }}>Se eu sei tanto, por que ainda estou preso?</p>
+              <p>Foi aí que entendi: o Limbo não é falta de inteligência. É um lugar silencioso.</p>
+              <p>Você funciona. Trabalha. Cuida. E, por dentro, uma vida esperando começar.</p>
               <p>Eu conheço esse lugar.</p>
-              <p>Conheço o peso de adiar. Conheço a culpa por saber o caminho e ainda não conseguir caminhar. Conheço as Correntes Invisíveis que fazem um homem acreditar que amanhã será diferente enquanto ele repete os mesmos dias.</p>
-              <p>Minha Travessia não começou quando encontrei todas as respostas.</p>
+              <p>Conheço o peso do adiar. A culpa de saber o caminho e não caminhar. As Correntes Invisíveis que fazem um homem crer no amanhã enquanto repete o hoje.</p>
+              <p>Minha Travessia não começou quando encontrei respostas.</p>
               <p>Começou quando parei de fugir das minhas Sombras.</p>
               <p>Quando deixei de esperar sentir força para agir.</p>
-              <p>Quando entendi que coragem não é ausência de medo.</p>
+              <p>Quando entendi: coragem não é ausência de medo.</p>
               <p style={{ color: "var(--ivory)" }} className="italic">É atravessar carregando o medo.</p>
-              <p>Os Ressurgentes nasceram dessa experiência. Não como teoria. Não como fórmula. Não como promessa.</p>
-              <p>Mas como um espaço para homens reconhecerem suas Correntes Invisíveis, atravessarem suas Sombras e reconstruírem a própria identidade.</p>
-              <p>Eu não caminho à frente porque sou melhor.</p>
+              <p>Os Ressurgentes nasceram disso. Não teoria. Não fórmula. Não promessa.</p>
+              <p>Um espaço para homens reconhecerem suas Correntes, atravessarem suas Sombras e reconstruírem a própria identidade.</p>
+              <p>Não caminho à frente porque sou melhor.</p>
               <p>Caminho ao lado porque também continuo atravessando.</p>
             </div>
           </div>
@@ -689,17 +685,17 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>pode ser para você</Eyebrow>
             <h3 className="serif text-3xl md:text-4xl leading-snug" style={{ color: "var(--ivory)" }}>
-              Esta Travessia pode ser para você se…
+              Pode ser para você se…
             </h3>
             <ul className="mt-10 space-y-4 text-base md:text-lg" style={{ color: "rgba(240,234,223,0.82)" }}>
               {[
-                "você já compreendeu muito, mas ainda não conseguiu transformar compreensão em movimento;",
+                "entendeu muito — e ainda não virou movimento;",
                 "sente que vive abaixo do que poderia construir;",
-                "percebe que existem padrões se repetindo;",
-                "cansou de buscar apenas motivação;",
-                "deseja atravessar suas Sombras sem ser julgado;",
-                "quer assumir responsabilidade pela própria vida;",
-                "deseja caminhar ao lado de homens que também decidiram sair do Limbo.",
+                "reconhece padrões que se repetem;",
+                "cansou de só se motivar;",
+                "quer atravessar as Sombras sem ser julgado;",
+                "está pronto para assumir a própria vida;",
+                "quer caminhar ao lado de homens em Travessia.",
               ].map((t) => (
                 <li key={t} className="flex gap-4">
                   <span className="mt-3 h-px w-4 shrink-0" style={{ backgroundColor: "var(--gold)" }} />
@@ -711,18 +707,18 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>não é para</Eyebrow>
             <h3 className="serif text-3xl md:text-4xl leading-snug" style={{ color: "var(--ivory)" }}>
-              Esta Travessia não é para quem procura…
+              Não é para quem procura…
             </h3>
             <ul className="mt-10 space-y-4 text-base md:text-lg" style={{ color: "rgba(240,234,223,0.6)" }}>
               {[
-                "um salvador;",
-                "um guru;",
+                "salvador;",
+                "guru;",
                 "respostas prontas;",
                 "motivação passageira;",
-                "fórmulas universais;",
-                "culpados;",
-                "atalhos sem responsabilidade;",
-                "um lugar para permanecer na dor sem se mover.",
+                "fórmula universal;",
+                "culpado externo;",
+                "atalho sem responsabilidade;",
+                "conforto para permanecer na dor.",
               ].map((t) => (
                 <li key={t} className="flex gap-4">
                   <span className="mt-3 h-px w-4 shrink-0" style={{ backgroundColor: "var(--muted-foreground)" }} />
@@ -731,7 +727,7 @@ function Landing() {
               ))}
             </ul>
             <p className="serif mt-10 text-lg italic" style={{ color: "var(--sand)" }}>
-              Cada homem tem seu tempo. Ouvir o chamado não significa estar pronto para atravessar.
+              Ouvir o chamado não é o mesmo que estar pronto para atravessar.
             </p>
           </div>
         </div>
@@ -743,17 +739,16 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>a comunidade</Eyebrow>
             <SectionTitle>
-              Você não será o único na lama.<br />
-              <span style={{ color: "var(--sand)" }}>Mas ninguém permanecerá nela por você.</span>
+              Você não estará sozinho na lama.<br />
+              <span style={{ color: "var(--sand)" }}>Mas ninguém a atravessa por você.</span>
             </SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
             <p>OS RESSURGENTES é uma comunidade de homens em Travessia.</p>
-            <p>Um espaço de conversa, consciência, desafios, movimento e reconstrução.</p>
-            <p>Ninguém será carregado.</p>
-            <p>Ninguém será humilhado.</p>
-            <p>Ninguém precisará fingir que já venceu.</p>
-            <p>Cada homem será convidado a assumir o próximo passo possível.</p>
+            <p>Conversa. Consciência. Desafio. Movimento. Reconstrução.</p>
+            <p>Ninguém é carregado. Ninguém é humilhado.</p>
+            <p>Ninguém precisa fingir que já venceu.</p>
+            <p>Cada homem é convocado ao próximo passo possível.</p>
           </div>
         </div>
       </section>
@@ -765,18 +760,18 @@ function Landing() {
         <div className="container-editorial relative max-w-3xl text-center">
           <p className="label-eyebrow mb-10 reveal" style={{ color: "var(--gold)" }}>a convocação</p>
           <h2 className="text-display text-[clamp(2rem,5.5vw,4.4rem)] reveal" style={{ color: "var(--ivory)" }}>
-            As Correntes Invisíveis não desaparecem sozinhas.
+            Correntes Invisíveis não caem sozinhas.
           </h2>
           <p className="serif mt-8 text-xl md:text-2xl italic reveal" style={{ color: "var(--sand)" }}>
-            A Travessia começa quando você decide responder ao chamado.
+            A entrada é por entrevista. Um encontro. Uma escuta. Uma decisão.
           </p>
           <div className="mx-auto mt-12 max-w-xl space-y-4 text-lg leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
             <p>Você não precisa ter todas as respostas.</p>
-            <p>Precisa apenas reconhecer se continuar igual ainda é aceitável.</p>
+            <p>Precisa reconhecer se continuar igual ainda cabe.</p>
           </div>
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4 reveal">
-            <a href={CONTACT_URL} className="btn-primary">Responder ao chamado</a>
-            <a href={CONTACT_URL} className="btn-ghost">Conversar com o.gentólogo</a>
+            <a href={CONTACT_URL} className="btn-primary">Solicitar entrevista com o.gentólogo</a>
+            <a href="#manifesto" className="btn-ghost">Reler o Manifesto</a>
           </div>
           <p className="mt-10 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
             Sem pressão. Sem performance. Só verdade.
@@ -810,9 +805,9 @@ function Landing() {
               </ul>
             </div>
             <div>
-              <p className="label-eyebrow mb-4">Contato</p>
+              <p className="label-eyebrow mb-4">Entrar</p>
               <ul className="space-y-2 text-sm" style={{ color: "var(--muted-foreground)" }}>
-                <li><a href={CONTACT_URL} className="hover:text-[color:var(--gold)]">Falar com o.gentólogo</a></li>
+                <li><a href={CONTACT_URL} className="hover:text-[color:var(--gold)]">Solicitar entrevista</a></li>
                 <li><a href="#" className="hover:text-[color:var(--gold)]">Instagram</a></li>
                 <li><a href="#" className="hover:text-[color:var(--gold)]">Política de privacidade</a></li>
                 <li><a href="#" className="hover:text-[color:var(--gold)]">Termos de uso</a></li>
