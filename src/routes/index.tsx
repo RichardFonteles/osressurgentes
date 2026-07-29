@@ -816,7 +816,7 @@ function Landing() {
           <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
             <div>
               <div className="flex items-center gap-4">
-                <img src={logoAsset.url} alt="Os Ressurgentes" className="h-14 w-14 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+                <img src={logoWhite} alt="Os Ressurgentes" className="h-14 w-14 object-contain" />
                 <div>
                   <p className="serif text-lg tracking-[0.24em] uppercase" style={{ color: "var(--ivory)" }}>OS RESSURGENTES</p>
                   <p className="serif mt-1 italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
