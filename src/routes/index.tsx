@@ -805,9 +805,9 @@ function Landing() {
               </ul>
             </div>
             <div>
-              <p className="label-eyebrow mb-4">Contato</p>
+              <p className="label-eyebrow mb-4">Entrar</p>
               <ul className="space-y-2 text-sm" style={{ color: "var(--muted-foreground)" }}>
-                <li><a href={CONTACT_URL} className="hover:text-[color:var(--gold)]">Falar com o.gentólogo</a></li>
+                <li><a href={CONTACT_URL} className="hover:text-[color:var(--gold)]">Solicitar entrevista</a></li>
                 <li><a href="#" className="hover:text-[color:var(--gold)]">Instagram</a></li>
                 <li><a href="#" className="hover:text-[color:var(--gold)]">Política de privacidade</a></li>
                 <li><a href="#" className="hover:text-[color:var(--gold)]">Termos de uso</a></li>
