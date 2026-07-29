@@ -481,16 +481,16 @@ function Landing() {
         <div className="container-editorial max-w-3xl">
           <div className="reveal">
             <Eyebrow>o chamado</Eyebrow>
-            <SectionTitle>Nem todo homem percebe quando a vida o chama.</SectionTitle>
+            <SectionTitle>Nem todo homem escuta quando é chamado.</SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
             <p>Alguns escutam e voltam para o conhecido.</p>
-            <p>Outros escutam, sentem medo e permanecem parados.</p>
-            <p>Poucos compreendem que o chamado não elimina o medo.</p>
-            <p>Apenas revela que continuar igual já custa demais.</p>
+            <p>Outros escutam, sentem medo e ficam.</p>
+            <p>Poucos entendem: o chamado não tira o medo.</p>
+            <p>Ele só mostra que continuar igual já custa mais caro.</p>
           </div>
           <p className="serif mt-16 text-3xl md:text-4xl italic leading-snug reveal" style={{ color: "var(--gold)" }}>
-            Muitos ouvirão.<br />Poucos aceitarão atravessar.
+            Muitos ouvirão.<br />Poucos atravessam.
           </p>
         </div>
       </section>
