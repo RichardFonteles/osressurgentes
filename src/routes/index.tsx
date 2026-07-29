@@ -564,18 +564,18 @@ function Landing() {
         <div className="container-editorial max-w-3xl">
           <div className="reveal">
             <Eyebrow>quem são</Eyebrow>
-            <SectionTitle>Os Ressurgentes não são homens que nunca caíram.</SectionTitle>
+            <SectionTitle>Não são homens que nunca caíram.</SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>São homens que decidiram não transformar a queda em morada.</p>
-            <p>Não procuram um salvador.</p>
-            <p>Não entregam a própria responsabilidade a um líder.</p>
+            <p>São homens que decidiram não morar na queda.</p>
+            <p>Não procuram salvador.</p>
+            <p>Não terceirizam a própria vida.</p>
             <p>Não negam suas Sombras.</p>
-            <p>Não esperam ausência de medo para agir.</p>
-            <p>Caminham juntos porque sabem que nenhuma Travessia precisa ser solitária.</p>
+            <p>Não esperam a ausência de medo para agir.</p>
+            <p>Caminham juntos porque nenhuma Travessia precisa ser solitária.</p>
           </div>
           <p className="serif mt-14 text-2xl md:text-3xl italic reveal" style={{ color: "var(--gold)" }}>
-            Uma comunidade não de homens prontos, mas de homens dispostos.
+            Não uma comunidade de prontos. Uma comunidade de dispostos.
           </p>
         </div>
       </section>
