@@ -346,7 +346,7 @@ function Landing() {
             inset: 0,
             zIndex: 0,
             pointerEvents: "none",
-            opacity: 0.55,
+            opacity: 0.4,
           }}
         >
           <Suspense fallback={null}>
@@ -592,17 +592,15 @@ function Landing() {
               ["Reconstruir a Identidade", "Parar de reagir. Começar a construir."],
               ["Ressurgir", "Não voltar a ser. Passar a existir de outro modo."],
             ].map(([title, body], i) => (
-              <li key={title} className="reveal-left relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
+              <li key={title} className="reveal-left relative border-l pb-14 pl-10 md:pl-16 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
                 <span
-                  className="serif absolute -left-[1px] top-0 -translate-x-1/2 grid h-10 w-10 place-items-center rounded-full text-sm"
+                  className="serif absolute left-0 top-0 -translate-x-1/2 grid h-10 w-10 place-items-center rounded-full text-sm"
                   style={{ backgroundColor: "var(--ink)", color: "var(--gold)", border: "1px solid var(--gold)" }}
                 >
                   {i + 1}
                 </span>
-                <div className="col-span-2">
-                  <h3 className="serif text-2xl md:text-3xl" style={{ color: "var(--ivory)" }}>{title}</h3>
-                  <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.72)" }}>{body}</p>
-                </div>
+                <h3 className="serif text-2xl md:text-3xl" style={{ color: "var(--ivory)" }}>{title}</h3>
+                <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.72)" }}>{body}</p>
               </li>
             ))}
           </ol>
@@ -698,24 +696,30 @@ function Landing() {
               <Eyebrow>minha travessia</Eyebrow>
               <SectionTitle>Também atravesso.</SectionTitle>
             </div>
-            <div className="serif mt-10 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
-              <p>Por muito tempo achei que faltava conhecimento.</p>
-              <p>Estudei. Li. Ensinei. Ajudei muitos.</p>
-              <p>Quando a porta se fechava, sempre a mesma pergunta:</p>
-              <p className="italic" style={{ color: "var(--gold)" }}>Se eu sei tanto, por que ainda estou preso?</p>
-              <p>Foi aí que entendi: o Limbo não é falta de inteligência. É um lugar silencioso.</p>
-              <p>Você funciona. Trabalha. Cuida. E, por dentro, uma vida esperando começar.</p>
-              <p>Eu conheço esse lugar.</p>
-              <p>Conheço o peso do adiar. A culpa de saber o caminho e não caminhar. As Correntes Invisíveis que fazem um homem crer no amanhã enquanto repete o hoje.</p>
-              <p>Minha Travessia não começou quando encontrei respostas.</p>
-              <p>Começou quando parei de fugir das minhas Sombras.</p>
-              <p>Quando deixei de esperar sentir força para agir.</p>
-              <p>Quando entendi: coragem não é ausência de medo.</p>
-              <p style={{ color: "var(--ivory)" }} className="italic">É atravessar carregando o medo.</p>
-              <p>Os Ressurgentes nasceram disso. Não teoria. Não fórmula. Não promessa.</p>
-              <p>Um espaço para homens reconhecerem suas Correntes, atravessarem suas Sombras e reconstruírem a própria identidade.</p>
-              <p>Não caminho à frente porque sou melhor.</p>
-              <p>Caminho ao lado porque também continuo atravessando.</p>
+            <div className="serif mt-10 space-y-8 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
+              <p>
+                Por muito tempo achei que faltava conhecimento. Estudei, li, ensinei, ajudei muitos —
+                e mesmo assim, quando a porta se fechava, sempre a mesma pergunta:
+                <span className="italic block mt-4" style={{ color: "var(--gold)" }}>se eu sei tanto, por que ainda estou preso?</span>
+              </p>
+              <p>
+                Foi aí que entendi: o Limbo não é falta de inteligência. É um lugar silencioso onde o
+                homem funciona por fora — trabalha, entrega, cuida — enquanto por dentro uma vida
+                inteira espera para começar.
+              </p>
+              <p>
+                Conheço o peso do adiar. A culpa de saber o caminho e não caminhar. As Correntes
+                Invisíveis que fazem crer no amanhã enquanto se repete o hoje.
+              </p>
+              <p>
+                Minha Travessia não começou quando encontrei respostas. Começou quando parei de fugir
+                das minhas Sombras — e entendi que coragem
+                <span className="italic" style={{ color: "var(--ivory)" }}> não é ausência de medo, é atravessar carregando o medo.</span>
+              </p>
+              <p>
+                Os Ressurgentes nasceram disso. Não caminho à frente porque sou melhor.
+                <span className="block mt-3" style={{ color: "var(--gold)" }}>Caminho ao lado porque também continuo atravessando.</span>
+              </p>
             </div>
           </div>
         </div>
