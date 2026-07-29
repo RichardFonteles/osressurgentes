@@ -388,7 +388,7 @@ function Landing() {
               <article
                 key={title}
                 className="reveal group p-10 transition-colors duration-500 hover:bg-[color:var(--forest)]"
-                style={{ backgroundColor: "var(--ink)", transitionDelay: `${i * 60}ms` }}
+                style={{ backgroundColor: "var(--ink)", ["--reveal-delay" as string]: `${i * 90}ms` }}
               >
                 <div className="mb-6 flex items-center gap-3">
                   <span className="serif text-sm" style={{ color: "var(--gold)" }}>0{i + 1}</span>
