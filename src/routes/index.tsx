@@ -719,7 +719,7 @@ function Landing() {
 
       {/* ============ CONVOCAÇÃO FINAL ============ */}
       <section id="convocacao" className="relative overflow-hidden py-40 md:py-56">
-        <img src={horizon} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <img src={horizon} alt="" aria-hidden data-parallax="0.22" className="parallax-y absolute inset-0 h-[125%] w-full -top-[12%] object-cover" loading="lazy" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink) 0%, rgba(13,15,14,0.45) 40%, rgba(13,15,14,0.75) 100%)" }} />
         <div className="container-editorial relative max-w-3xl text-center">
           <p className="label-eyebrow mb-10 reveal" style={{ color: "var(--gold)" }}>a convocação</p>
