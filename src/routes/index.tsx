@@ -502,18 +502,18 @@ function Landing() {
         <div className="container-editorial relative max-w-3xl text-center">
           <p className="label-eyebrow mb-8 reveal" style={{ color: "var(--gold)" }}>o momento</p>
           <h2 className="text-display text-[clamp(2rem,5vw,4rem)] reveal" style={{ color: "var(--ivory)" }}>
-            E se este fosse o momento que separa quem você é hoje de quem ainda pode se tornar?
+            E se hoje for a linha entre quem você é e quem ainda pode se tornar?
           </h2>
           <div className="mx-auto mt-12 max-w-xl space-y-6 text-lg leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Alguns homens passam anos esperando uma oportunidade de mudar.</p>
-            <p>Até perceberem que a oportunidade não chega como certeza.</p>
-            <p style={{ color: "var(--gold)" }}>Ela chega como decisão.</p>
+            <p>Muitos esperam uma oportunidade para mudar.</p>
+            <p>Até entenderem que ela não chega como certeza.</p>
+            <p style={{ color: "var(--gold)" }}>Chega como decisão.</p>
           </div>
           <p className="serif mt-16 text-2xl md:text-3xl italic reveal" style={{ color: "var(--ivory)" }}>
-            Quando o momento chegar, você atravessa ou deixa que ele passe?
+            Você atravessa — ou deixa passar?
           </p>
           <div className="mt-12 reveal">
-            <a href={CTA_URL} className="btn-primary">Eu escolho atravessar</a>
+            <a href={CTA_URL} className="btn-primary">Escolho atravessar</a>
           </div>
         </div>
       </section>
