@@ -760,18 +760,18 @@ function Landing() {
         <div className="container-editorial relative max-w-3xl text-center">
           <p className="label-eyebrow mb-10 reveal" style={{ color: "var(--gold)" }}>a convocação</p>
           <h2 className="text-display text-[clamp(2rem,5.5vw,4.4rem)] reveal" style={{ color: "var(--ivory)" }}>
-            As Correntes Invisíveis não desaparecem sozinhas.
+            Correntes Invisíveis não caem sozinhas.
           </h2>
           <p className="serif mt-8 text-xl md:text-2xl italic reveal" style={{ color: "var(--sand)" }}>
-            A Travessia começa quando você decide responder ao chamado.
+            A entrada é por entrevista. Um encontro. Uma escuta. Uma decisão.
           </p>
           <div className="mx-auto mt-12 max-w-xl space-y-4 text-lg leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
             <p>Você não precisa ter todas as respostas.</p>
-            <p>Precisa apenas reconhecer se continuar igual ainda é aceitável.</p>
+            <p>Precisa reconhecer se continuar igual ainda cabe.</p>
           </div>
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4 reveal">
-            <a href={CONTACT_URL} className="btn-primary">Responder ao chamado</a>
-            <a href={CONTACT_URL} className="btn-ghost">Conversar com o.gentólogo</a>
+            <a href={CONTACT_URL} className="btn-primary">Solicitar entrevista com o.gentólogo</a>
+            <a href="#manifesto" className="btn-ghost">Reler o Manifesto</a>
           </div>
           <p className="mt-10 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
             Sem pressão. Sem performance. Só verdade.
