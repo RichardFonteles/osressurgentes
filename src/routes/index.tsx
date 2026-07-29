@@ -269,6 +269,12 @@ function Landing() {
   const progressRef = useRef<HTMLDivElement | null>(null);
   useScrollProgress(progressRef);
   const [manifestoOpen, setManifestoOpen] = useState(false);
+  // Save-Data / tela muito estreita → não monta o 3D (mantém metáfora via imagens)
+  const skip3D =
+    typeof navigator !== "undefined" &&
+    (((navigator as any).connection?.saveData ?? false) ||
+      ((navigator as any).deviceMemory ?? 8) < 3);
+  const sceneReady = useDeferredMount(skip3D);
 
   return (
     <div id="top" style={{ backgroundColor: "var(--ink)", color: "var(--ivory)" }}>
