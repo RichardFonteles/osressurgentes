@@ -172,35 +172,89 @@ function SectionTitle({ children, className = "" }: { children: ReactNode; class
 /* ------------ nav ------------ */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 40);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
+
+  const links: [string, string][] = [
+    ["#limbo", "Limbo"],
+    ["#correntes", "Correntes"],
+    ["#travessia", "Travessia"],
+    ["#manifesto", "Manifesto"],
+  ];
+
   return (
     <header
-      className="fixed inset-x-0 top-0 z-40 transition-all duration-500"
+      className="fixed inset-x-0 top-0 z-40"
       style={{
-        backgroundColor: scrolled ? "rgba(13,15,14,0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+        backgroundColor: scrolled || open ? "rgba(13,15,14,0.78)" : "transparent",
+        backdropFilter: scrolled || open ? "blur(14px) saturate(120%)" : "none",
+        borderBottom: `1px solid ${scrolled || open ? "rgba(240,234,223,0.08)" : "transparent"}`,
+        transition: "background-color 640ms var(--ease-out-editorial), backdrop-filter 640ms var(--ease-out-editorial), border-color 640ms var(--ease-out-editorial), padding 320ms var(--ease-out-editorial)",
+        paddingBlock: scrolled ? "0.75rem" : "1.25rem",
       }}
     >
-      <div className="container-editorial flex items-center justify-between py-5">
-        <a href="#top" className="flex items-center gap-3" style={{ color: "var(--ivory)" }}>
-          <img src={logoAsset.url} alt="Os Ressurgentes" className="h-10 w-10 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
-          <span className="serif text-sm tracking-[0.32em] uppercase hidden sm:inline">OS RESSURGENTES</span>
+      <div className="container-editorial flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-3 ds-focus" style={{ color: "var(--ivory)" }} aria-label="Os Ressurgentes — início">
+          <img src={logoAsset.url} alt="" aria-hidden className="h-9 w-9 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+          <span className="serif text-[0.78rem] tracking-[0.34em] uppercase hidden sm:inline">Os Ressurgentes</span>
         </a>
-        <nav className="hidden gap-8 text-xs uppercase tracking-[0.24em] md:flex" style={{ color: "var(--muted-foreground)" }}>
-          <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">Limbo</a>
-          <a href="#correntes" className="hover:text-[color:var(--gold)] transition-colors">Correntes</a>
-          <a href="#travessia" className="hover:text-[color:var(--gold)] transition-colors">Travessia</a>
-          <a href="#manifesto" className="hover:text-[color:var(--gold)] transition-colors">Manifesto</a>
+
+        <nav className="hidden md:flex items-center gap-9" aria-label="Navegação principal">
+          {links.map(([href, label]) => (
+            <a key={href} href={href} className="ds-nav-link">{label}</a>
+          ))}
         </nav>
-        <a href={CTA_URL} className="text-xs uppercase tracking-[0.24em]" style={{ color: "var(--gold)" }}>
-          Solicitar entrevista →
-        </a>
+
+        <div className="flex items-center gap-3">
+          <a href={CTA_URL} className="ds-btn ds-btn-primary hidden md:inline-flex" style={{ padding: "0.65rem 1.15rem", fontSize: "0.7rem" }}>
+            Solicitar entrevista
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            className="md:hidden ds-focus grid h-10 w-10 place-items-center"
+            style={{ color: "var(--ivory)" }}
+          >
+            <span className="relative block h-[2px] w-6" style={{ backgroundColor: "currentColor", transform: open ? "translateY(0) rotate(45deg)" : "translateY(-5px)", transition: "transform 320ms var(--ease-out-editorial)" }} />
+            <span className="absolute block h-[2px] w-6" style={{ backgroundColor: "currentColor", transform: open ? "translateY(0) rotate(-45deg)" : "translateY(5px)", transition: "transform 320ms var(--ease-out-editorial)" }} />
+          </button>
+        </div>
+      </div>
+
+      {/* Sheet mobile */}
+      <div
+        className="md:hidden overflow-hidden"
+        style={{
+          maxHeight: open ? "80vh" : "0px",
+          transition: "max-height 480ms var(--ease-out-editorial)",
+        }}
+      >
+        <nav className="container-editorial flex flex-col gap-1 pb-8 pt-4" aria-label="Navegação mobile">
+          {links.map(([href, label]) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              className="serif text-2xl py-3"
+              style={{ color: "var(--ivory)", borderBottom: "1px solid var(--border)" }}
+            >
+              {label}
+            </a>
+          ))}
+          <a href={CTA_URL} onClick={() => setOpen(false)} className="ds-btn ds-btn-primary mt-6">
+            Solicitar entrevista
+          </a>
+        </nav>
       </div>
     </header>
   );
@@ -292,7 +346,7 @@ function Landing() {
             inset: 0,
             zIndex: 0,
             pointerEvents: "none",
-            opacity: 0.55,
+            opacity: 0.4,
           }}
         >
           <Suspense fallback={null}>
@@ -339,15 +393,15 @@ function Landing() {
               Descer ao fundo. Ressurgir transformado.
             </p>
             <div className="mt-12 flex flex-wrap gap-4 reveal">
-              <a href={CTA_URL} className="btn-primary">Solicitar entrevista</a>
-              <a href="#travessia" className="btn-ghost">Conhecer a Travessia</a>
+              <a href={CTA_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
+              <a href="#travessia" className="ds-btn ds-btn-ghost">Conhecer a Travessia</a>
             </div>
             <p className="mt-6 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
               Vagas por entrevista · sem venda automática
             </p>
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-xs uppercase tracking-[0.4em] animate-pulse" style={{ color: "var(--sand)" }}>
+        <div className="scroll-cue absolute bottom-8 left-1/2 z-10 text-[0.65rem] uppercase tracking-[0.42em]" style={{ color: "var(--sand)" }} aria-hidden>
           role para descer
         </div>
       </section>
@@ -513,7 +567,7 @@ function Landing() {
             Você atravessa — ou deixa passar?
           </p>
           <div className="mt-12 reveal">
-            <a href={CTA_URL} className="btn-primary">Escolho atravessar</a>
+            <a href={CTA_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
           </div>
         </div>
       </section>
@@ -538,17 +592,15 @@ function Landing() {
               ["Reconstruir a Identidade", "Parar de reagir. Começar a construir."],
               ["Ressurgir", "Não voltar a ser. Passar a existir de outro modo."],
             ].map(([title, body], i) => (
-              <li key={title} className="reveal-left relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
+              <li key={title} className="reveal-left relative border-l pb-14 pl-10 md:pl-16 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
                 <span
-                  className="serif absolute -left-[1px] top-0 -translate-x-1/2 grid h-10 w-10 place-items-center rounded-full text-sm"
+                  className="serif absolute left-0 top-0 -translate-x-1/2 grid h-10 w-10 place-items-center rounded-full text-sm"
                   style={{ backgroundColor: "var(--ink)", color: "var(--gold)", border: "1px solid var(--gold)" }}
                 >
                   {i + 1}
                 </span>
-                <div className="col-span-2">
-                  <h3 className="serif text-2xl md:text-3xl" style={{ color: "var(--ivory)" }}>{title}</h3>
-                  <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.72)" }}>{body}</p>
-                </div>
+                <h3 className="serif text-2xl md:text-3xl" style={{ color: "var(--ivory)" }}>{title}</h3>
+                <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.72)" }}>{body}</p>
               </li>
             ))}
           </ol>
@@ -595,7 +647,7 @@ function Landing() {
             Não volto para salvar.<br />Volto para convocar.
           </p>
           <div className="mt-14 reveal">
-            <button onClick={() => setManifestoOpen(true)} className="btn-ghost">
+            <button onClick={() => setManifestoOpen(true)} className="ds-btn ds-btn-ghost">
               Ler o manifesto completo
             </button>
           </div>
@@ -644,24 +696,30 @@ function Landing() {
               <Eyebrow>minha travessia</Eyebrow>
               <SectionTitle>Também atravesso.</SectionTitle>
             </div>
-            <div className="serif mt-10 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
-              <p>Por muito tempo achei que faltava conhecimento.</p>
-              <p>Estudei. Li. Ensinei. Ajudei muitos.</p>
-              <p>Quando a porta se fechava, sempre a mesma pergunta:</p>
-              <p className="italic" style={{ color: "var(--gold)" }}>Se eu sei tanto, por que ainda estou preso?</p>
-              <p>Foi aí que entendi: o Limbo não é falta de inteligência. É um lugar silencioso.</p>
-              <p>Você funciona. Trabalha. Cuida. E, por dentro, uma vida esperando começar.</p>
-              <p>Eu conheço esse lugar.</p>
-              <p>Conheço o peso do adiar. A culpa de saber o caminho e não caminhar. As Correntes Invisíveis que fazem um homem crer no amanhã enquanto repete o hoje.</p>
-              <p>Minha Travessia não começou quando encontrei respostas.</p>
-              <p>Começou quando parei de fugir das minhas Sombras.</p>
-              <p>Quando deixei de esperar sentir força para agir.</p>
-              <p>Quando entendi: coragem não é ausência de medo.</p>
-              <p style={{ color: "var(--ivory)" }} className="italic">É atravessar carregando o medo.</p>
-              <p>Os Ressurgentes nasceram disso. Não teoria. Não fórmula. Não promessa.</p>
-              <p>Um espaço para homens reconhecerem suas Correntes, atravessarem suas Sombras e reconstruírem a própria identidade.</p>
-              <p>Não caminho à frente porque sou melhor.</p>
-              <p>Caminho ao lado porque também continuo atravessando.</p>
+            <div className="serif mt-10 space-y-8 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
+              <p>
+                Por muito tempo achei que faltava conhecimento. Estudei, li, ensinei, ajudei muitos —
+                e mesmo assim, quando a porta se fechava, sempre a mesma pergunta:
+                <span className="italic block mt-4" style={{ color: "var(--gold)" }}>se eu sei tanto, por que ainda estou preso?</span>
+              </p>
+              <p>
+                Foi aí que entendi: o Limbo não é falta de inteligência. É um lugar silencioso onde o
+                homem funciona por fora — trabalha, entrega, cuida — enquanto por dentro uma vida
+                inteira espera para começar.
+              </p>
+              <p>
+                Conheço o peso do adiar. A culpa de saber o caminho e não caminhar. As Correntes
+                Invisíveis que fazem crer no amanhã enquanto se repete o hoje.
+              </p>
+              <p>
+                Minha Travessia não começou quando encontrei respostas. Começou quando parei de fugir
+                das minhas Sombras — e entendi que coragem
+                <span className="italic" style={{ color: "var(--ivory)" }}> não é ausência de medo, é atravessar carregando o medo.</span>
+              </p>
+              <p>
+                Os Ressurgentes nasceram disso. Não caminho à frente porque sou melhor.
+                <span className="block mt-3" style={{ color: "var(--gold)" }}>Caminho ao lado porque também continuo atravessando.</span>
+              </p>
             </div>
           </div>
         </div>
@@ -770,8 +828,8 @@ function Landing() {
             <p>Precisa reconhecer se continuar igual ainda cabe.</p>
           </div>
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4 reveal">
-            <a href={CONTACT_URL} className="btn-primary">Solicitar entrevista com o.gentólogo</a>
-            <a href="#manifesto" className="btn-ghost">Reler o Manifesto</a>
+            <a href={CONTACT_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
+            <a href="#manifesto" className="ds-btn ds-btn-ghost">Reler o Manifesto</a>
           </div>
           <p className="mt-10 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
             Sem pressão. Sem performance. Só verdade.
