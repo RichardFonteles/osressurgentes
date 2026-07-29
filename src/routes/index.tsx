@@ -270,7 +270,8 @@ function Landing() {
         <img
           src={heroForest}
           alt="Homem caminhando por uma floresta escura enevoada"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="parallax-y absolute inset-0 h-[115%] w-full -top-[7%] object-cover"
+          data-parallax="0.18"
           width={1920}
           height={1280}
         />
