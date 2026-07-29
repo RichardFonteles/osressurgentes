@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 const ForestScene = lazy(() => import("@/components/ForestScene"));
 import heroForest from "@/assets/hero-forest.jpg";
-import mentorPortrait from "@/assets/mentor-portrait-clean.jpg";
+import mentorPortrait from "@/assets/mentor-portrait-original.jpg.asset.json";
 import horizon from "@/assets/horizon.jpg";
 import moss from "@/assets/moss.jpg";
 import logoOriginal from "@/assets/logo-transparent.png.asset.json";
