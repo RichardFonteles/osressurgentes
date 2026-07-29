@@ -441,7 +441,7 @@ function Landing() {
           </div>
 
           <p className="mx-auto mt-16 max-w-2xl text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Cada homem carrega combinações diferentes. A Travessia começa quando aquilo que era invisível passa a ser reconhecido.
+            Cada homem carrega a sua combinação. A Travessia começa quando o invisível é nomeado.
           </p>
         </div>
       </section>
