@@ -193,13 +193,13 @@ function Nav() {
           <span className="serif text-sm tracking-[0.32em] uppercase hidden sm:inline">OS RESSURGENTES</span>
         </a>
         <nav className="hidden gap-8 text-xs uppercase tracking-[0.24em] md:flex" style={{ color: "var(--muted-foreground)" }}>
-          <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">O Limbo</a>
+          <a href="#limbo" className="hover:text-[color:var(--gold)] transition-colors">Limbo</a>
           <a href="#correntes" className="hover:text-[color:var(--gold)] transition-colors">Correntes</a>
-          <a href="#travessia" className="hover:text-[color:var(--gold)] transition-colors">A Travessia</a>
+          <a href="#travessia" className="hover:text-[color:var(--gold)] transition-colors">Travessia</a>
           <a href="#manifesto" className="hover:text-[color:var(--gold)] transition-colors">Manifesto</a>
         </nav>
         <a href={CTA_URL} className="text-xs uppercase tracking-[0.24em]" style={{ color: "var(--gold)" }}>
-          Responder ao chamado
+          Solicitar entrevista →
         </a>
       </div>
     </header>
