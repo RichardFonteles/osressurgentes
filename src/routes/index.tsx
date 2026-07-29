@@ -2,11 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 const ForestScene = lazy(() => import("@/components/ForestScene"));
 import heroForest from "@/assets/hero-forest.jpg";
-import mentorPortrait from "@/assets/mentor-portrait.jpg.asset.json";
+import mentorPortrait from "@/assets/mentor-portrait-clean.jpg";
 import horizon from "@/assets/horizon.jpg";
-import videoThumb from "@/assets/video-thumb.jpg";
 import moss from "@/assets/moss.jpg";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoWhite from "@/assets/logo-white.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -203,7 +202,7 @@ function Nav() {
     >
       <div className="container-editorial flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3 ds-focus" style={{ color: "var(--ivory)" }} aria-label="Os Ressurgentes — início">
-          <img src={logoAsset.url} alt="" aria-hidden className="h-9 w-9 object-contain" style={{ filter: "invert(1) brightness(1.1)" }} />
+          <img src={logoWhite} alt="" aria-hidden className="h-9 w-9 object-contain" />
           <span className="serif text-[0.78rem] tracking-[0.34em] uppercase hidden sm:inline">Os Ressurgentes</span>
         </a>
 
@@ -654,40 +653,14 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============ VÍDEO ============ */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: "var(--forest)" }}>
-        <div className="container-editorial max-w-4xl">
-          <div className="text-center reveal">
-            <Eyebrow>a convocação</Eyebrow>
-            <h2 className="text-display text-[clamp(1.8rem,4vw,3rem)]" style={{ color: "var(--ivory)" }}>
-              O Manifesto dos Ressurgentes.
-            </h2>
-          </div>
-          <div className="mt-14 group relative aspect-video overflow-hidden reveal cursor-pointer" style={{ backgroundColor: "var(--ink)" }}>
-            <img src={videoThumb} alt="Prévia do vídeo-manifesto" className="h-full w-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" loading="lazy" />
-            <div className="absolute inset-0 grid place-items-center" style={{ background: "linear-gradient(180deg, rgba(13,15,14,0.3), rgba(13,15,14,0.6))" }}>
-              <div className="grid h-20 w-20 place-items-center rounded-full border transition-all group-hover:scale-110" style={{ borderColor: "var(--gold)", backgroundColor: "rgba(13,15,14,0.4)" }}>
-                <svg width="20" height="24" viewBox="0 0 20 24" fill="none" aria-hidden>
-                  <path d="M0 0L20 12L0 24V0Z" fill="var(--gold)" />
-                </svg>
-              </div>
-            </div>
-            <div className="absolute bottom-6 left-6 text-xs uppercase tracking-[0.32em]" style={{ color: "var(--ivory)" }}>
-              em breve
-            </div>
-          </div>
-          <p className="mx-auto mt-8 max-w-lg text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Não é sobre sucesso. É uma convocação para quem cansou de ficar parado.
-          </p>
-        </div>
-      </section>
+      {/* Seção do vídeo removida até o vídeo-manifesto real existir. */}
 
       {/* ============ MINHA TRAVESSIA ============ */}
       <section className="py-32 md:py-40" style={{ backgroundColor: "var(--ink)" }}>
         <div className="container-editorial grid gap-16 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-24">
           <div className="reveal">
             <div className="sticky top-32">
-              <img src={mentorPortrait.url} alt="Retrato de o.gentólogo" className="w-full object-cover" loading="lazy" width={1200} height={1500} />
+              <img src={mentorPortrait} alt="Retrato de o.gentólogo em floresta enevoada" className="w-full object-cover" loading="lazy" width={1024} height={1024} />
               <p className="serif mt-6 text-lg italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
             </div>
           </div>
