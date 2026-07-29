@@ -276,20 +276,24 @@ function Landing() {
       <div ref={progressRef} className="scroll-progress" aria-hidden />
 
       {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo */}
-      <div
-        aria-hidden
-        style={{
-          position: "fixed",
-          inset: 0,
-          zIndex: 0,
-          pointerEvents: "none",
-          opacity: 0.55,
-        }}
-      >
-        <Suspense fallback={null}>
-          <ForestScene />
-        </Suspense>
-      </div>
+      {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo.
+          Adiada até o browser estar ocioso; desativada em Save-Data. */}
+      {sceneReady && (
+        <div
+          aria-hidden
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: "none",
+            opacity: 0.55,
+          }}
+        >
+          <Suspense fallback={null}>
+            <ForestScene />
+          </Suspense>
+        </div>
+      )}
       <div style={{ position: "relative", zIndex: 1 }}>
       <Nav />
 
