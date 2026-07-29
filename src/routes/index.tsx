@@ -458,16 +458,16 @@ function Landing() {
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
             <p>Sombras não são defeitos a eliminar.</p>
-            <p>São desejos, emoções, dores e forças internas que foram reprimidas, negadas ou mal compreendidas.</p>
-            <p>Quando um homem foge das próprias Sombras, elas dirigem sua vida em silêncio.</p>
-            <p>Quando ele aprende a atravessá-las, aquilo que o ameaçava pode se tornar consciência, beleza e realização.</p>
+            <p>São desejos, emoções e forças que foram reprimidas — e agora dirigem sua vida em silêncio.</p>
+            <p>Quem foge delas, obedece. Quem atravessa, integra.</p>
+            <p>O que ameaçava vira consciência, beleza e realização.</p>
           </div>
           <blockquote
             className="serif mt-16 text-2xl md:text-3xl italic leading-snug reveal"
             style={{ color: "var(--ivory)" }}
           >
             <span style={{ color: "var(--gold)" }}>“</span>
-            Ajudo homens a atravessarem suas sombras, integrarem seus desejos e transformarem suas emoções em consciência, beleza e realização.
+            Ajudo homens a atravessar suas sombras, integrar seus desejos e transformar sua intensidade em consciência, beleza e realização.
             <span style={{ color: "var(--gold)" }}>”</span>
             <footer className="mt-6 text-xs uppercase tracking-[0.32em] not-italic" style={{ color: "var(--sand)" }}>
               — o.gentólogo
