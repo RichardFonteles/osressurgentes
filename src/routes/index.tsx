@@ -608,7 +608,7 @@ function Landing() {
           <div className="text-center reveal">
             <Eyebrow>a convocação</Eyebrow>
             <h2 className="text-display text-[clamp(1.8rem,4vw,3rem)]" style={{ color: "var(--ivory)" }}>
-              Assista ao Manifesto dos Ressurgentes.
+              O Manifesto dos Ressurgentes.
             </h2>
           </div>
           <div className="mt-14 group relative aspect-video overflow-hidden reveal cursor-pointer" style={{ backgroundColor: "var(--ink)" }}>
@@ -625,7 +625,7 @@ function Landing() {
             </div>
           </div>
           <p className="mx-auto mt-8 max-w-lg text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Este não é um vídeo sobre sucesso. É uma convocação para quem cansou de permanecer no mesmo lugar.
+            Não é sobre sucesso. É uma convocação para quem cansou de ficar parado.
           </p>
         </div>
       </section>
