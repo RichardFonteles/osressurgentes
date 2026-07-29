@@ -396,7 +396,7 @@ function Landing() {
             className="serif mt-16 border-l-2 pl-8 text-2xl md:text-3xl italic leading-snug reveal"
             style={{ borderColor: "var(--gold)", color: "var(--ivory)" }}
           >
-            O Limbo é o lugar onde um homem continua funcionando, mas já não se reconhece inteiramente na própria vida.
+            O Limbo é onde o homem continua funcionando — e já não se reconhece na própria vida.
           </blockquote>
         </div>
       </section>
