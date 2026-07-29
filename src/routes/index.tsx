@@ -642,28 +642,25 @@ function Landing() {
           <div>
             <div className="reveal">
               <Eyebrow>minha travessia</Eyebrow>
-              <SectionTitle>Minha Travessia</SectionTitle>
+              <SectionTitle>Também atravesso.</SectionTitle>
             </div>
             <div className="serif mt-10 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
-              <p>Durante muito tempo eu acreditei que o problema era falta de conhecimento.</p>
-              <p>Então estudei. Li. Ensinei. Criei caminhos. Ajudei pessoas.</p>
-              <p>Mas, quando a porta se fechava, uma pergunta continuava voltando:</p>
-              <p className="italic" style={{ color: "var(--gold)" }}>Se eu sei tanto, por que continuo preso?</p>
-              <p>Foi quando compreendi que o Limbo não é falta de inteligência. É um lugar silencioso.</p>
-              <p>
-                Você continua funcionando. Continua trabalhando. Continua estudando. Continua cuidando de quem ama.
-              </p>
-              <p>Mas, por dentro, sente que existe uma vida esperando por você — e ela nunca começa.</p>
+              <p>Por muito tempo achei que faltava conhecimento.</p>
+              <p>Estudei. Li. Ensinei. Ajudei muitos.</p>
+              <p>Quando a porta se fechava, sempre a mesma pergunta:</p>
+              <p className="italic" style={{ color: "var(--gold)" }}>Se eu sei tanto, por que ainda estou preso?</p>
+              <p>Foi aí que entendi: o Limbo não é falta de inteligência. É um lugar silencioso.</p>
+              <p>Você funciona. Trabalha. Cuida. E, por dentro, uma vida esperando começar.</p>
               <p>Eu conheço esse lugar.</p>
-              <p>Conheço o peso de adiar. Conheço a culpa por saber o caminho e ainda não conseguir caminhar. Conheço as Correntes Invisíveis que fazem um homem acreditar que amanhã será diferente enquanto ele repete os mesmos dias.</p>
-              <p>Minha Travessia não começou quando encontrei todas as respostas.</p>
+              <p>Conheço o peso do adiar. A culpa de saber o caminho e não caminhar. As Correntes Invisíveis que fazem um homem crer no amanhã enquanto repete o hoje.</p>
+              <p>Minha Travessia não começou quando encontrei respostas.</p>
               <p>Começou quando parei de fugir das minhas Sombras.</p>
               <p>Quando deixei de esperar sentir força para agir.</p>
-              <p>Quando entendi que coragem não é ausência de medo.</p>
+              <p>Quando entendi: coragem não é ausência de medo.</p>
               <p style={{ color: "var(--ivory)" }} className="italic">É atravessar carregando o medo.</p>
-              <p>Os Ressurgentes nasceram dessa experiência. Não como teoria. Não como fórmula. Não como promessa.</p>
-              <p>Mas como um espaço para homens reconhecerem suas Correntes Invisíveis, atravessarem suas Sombras e reconstruírem a própria identidade.</p>
-              <p>Eu não caminho à frente porque sou melhor.</p>
+              <p>Os Ressurgentes nasceram disso. Não teoria. Não fórmula. Não promessa.</p>
+              <p>Um espaço para homens reconhecerem suas Correntes, atravessarem suas Sombras e reconstruírem a própria identidade.</p>
+              <p>Não caminho à frente porque sou melhor.</p>
               <p>Caminho ao lado porque também continuo atravessando.</p>
             </div>
           </div>
