@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 const ForestScene = lazy(() => import("@/components/ForestScene"));
 import heroForest from "@/assets/hero-forest.jpg";
-import mentorPortrait from "@/assets/mentor-portrait-clean.jpg";
+import mentorPortrait from "@/assets/mentor-portrait-original.jpg.asset.json";
 import horizon from "@/assets/horizon.jpg";
 import moss from "@/assets/moss.jpg";
 import logoOriginal from "@/assets/logo-transparent.png.asset.json";
@@ -685,7 +685,7 @@ function Landing() {
         <div className="container-editorial grid gap-16 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-24">
           <div className="reveal">
             <div className="sticky top-32">
-              <img src={mentorPortrait} alt="Retrato de o.gentólogo em floresta enevoada" className="w-full object-cover" loading="lazy" width={1024} height={1024} />
+              <img src={mentorPortrait.url} alt="Fotografia de o.gentólogo" className="w-full object-cover" loading="lazy" width={1024} height={1024} />
               <p className="serif mt-6 text-lg italic" style={{ color: "var(--sand)" }}>o.gentólogo</p>
             </div>
           </div>
