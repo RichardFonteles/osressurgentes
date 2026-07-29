@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
+const ForestScene = lazy(() => import("@/components/ForestScene"));
 import heroForest from "@/assets/hero-forest.jpg";
 import mentorPortrait from "@/assets/mentor-portrait.jpg.asset.json";
 import horizon from "@/assets/horizon.jpg";
@@ -156,7 +157,24 @@ function Landing() {
 
   return (
     <div id="top" style={{ backgroundColor: "var(--ink)", color: "var(--ivory)" }}>
+      {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo */}
+      <div
+        aria-hidden
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+          opacity: 0.55,
+        }}
+      >
+        <Suspense fallback={null}>
+          <ForestScene />
+        </Suspense>
+      </div>
+      <div style={{ position: "relative", zIndex: 1 }}>
       <Nav />
+
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-screen items-center overflow-hidden">
@@ -680,6 +698,8 @@ function Landing() {
       </footer>
 
       <ManifestoModal open={manifestoOpen} onClose={() => setManifestoOpen(false)} />
+      </div>
     </div>
+
   );
 }
