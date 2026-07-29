@@ -567,7 +567,7 @@ function Landing() {
             Você atravessa — ou deixa passar?
           </p>
           <div className="mt-12 reveal">
-            <a href={CTA_URL} className="btn-primary">Escolho atravessar</a>
+            <a href={CTA_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
           </div>
         </div>
       </section>
@@ -647,7 +647,7 @@ function Landing() {
             Não volto para salvar.<br />Volto para convocar.
           </p>
           <div className="mt-14 reveal">
-            <button onClick={() => setManifestoOpen(true)} className="btn-ghost">
+            <button onClick={() => setManifestoOpen(true)} className="ds-btn ds-btn-ghost">
               Ler o manifesto completo
             </button>
           </div>
@@ -828,8 +828,8 @@ function Landing() {
             <p>Precisa reconhecer se continuar igual ainda cabe.</p>
           </div>
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4 reveal">
-            <a href={CONTACT_URL} className="btn-primary">Solicitar entrevista com o.gentólogo</a>
-            <a href="#manifesto" className="btn-ghost">Reler o Manifesto</a>
+            <a href={CONTACT_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
+            <a href="#manifesto" className="ds-btn ds-btn-ghost">Reler o Manifesto</a>
           </div>
           <p className="mt-10 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
             Sem pressão. Sem performance. Só verdade.
