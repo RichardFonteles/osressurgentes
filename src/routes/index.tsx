@@ -739,17 +739,16 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>a comunidade</Eyebrow>
             <SectionTitle>
-              Você não será o único na lama.<br />
-              <span style={{ color: "var(--sand)" }}>Mas ninguém permanecerá nela por você.</span>
+              Você não estará sozinho na lama.<br />
+              <span style={{ color: "var(--sand)" }}>Mas ninguém a atravessa por você.</span>
             </SectionTitle>
           </div>
           <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
             <p>OS RESSURGENTES é uma comunidade de homens em Travessia.</p>
-            <p>Um espaço de conversa, consciência, desafios, movimento e reconstrução.</p>
-            <p>Ninguém será carregado.</p>
-            <p>Ninguém será humilhado.</p>
-            <p>Ninguém precisará fingir que já venceu.</p>
-            <p>Cada homem será convidado a assumir o próximo passo possível.</p>
+            <p>Conversa. Consciência. Desafio. Movimento. Reconstrução.</p>
+            <p>Ninguém é carregado. Ninguém é humilhado.</p>
+            <p>Ninguém precisa fingir que já venceu.</p>
+            <p>Cada homem é convocado ao próximo passo possível.</p>
           </div>
         </div>
       </section>
