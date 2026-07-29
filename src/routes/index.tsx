@@ -41,8 +41,8 @@ function useDeferredMount(skip = false) {
 }
 
 // Configuração de CTAs — edite estas URLs livremente
-const CTA_URL = "#convocacao";
-const CONTACT_URL = "https://wa.me/";
+const CTA_URL = "https://wa.me/5585996983300?text=Quero%20solicitar%20uma%20entrevista%20para%20a%20mentoria%20Os%20Ressurgentes";
+const CONTACT_URL = "https://wa.me/5585996983300?text=Quero%20solicitar%20uma%20entrevista%20para%20a%20mentoria%20Os%20Ressurgentes";
 
 /* ------------ hooks ------------ */
 function useReveal() {
