@@ -10,7 +10,36 @@ import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
+  head: () => ({
+    links: [
+      // LCP hint — pré-carrega a imagem do hero em alta prioridade
+      { rel: "preload", as: "image", href: heroForest, fetchpriority: "high" } as any,
+    ],
+  }),
 });
+
+/**
+ * useDeferredMount — só monta o filho depois que o browser está ocioso
+ * (ou após 1s de fallback). Reduz TBT e libera a thread para o LCP.
+ * Também respeita Save-Data e telas muito pequenas: se `skip` for true,
+ * nunca monta.
+ */
+function useDeferredMount(skip = false) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if (skip) return;
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+    if (ric) {
+      const id = ric(() => setReady(true), { timeout: 1500 });
+      return () => (window as any).cancelIdleCallback?.(id);
+    }
+    const t = setTimeout(() => setReady(true), 800);
+    return () => clearTimeout(t);
+  }, [skip]);
+  return ready;
+}
 
 // Configuração de CTAs — edite estas URLs livremente
 const CTA_URL = "#convocacao";
@@ -240,6 +269,12 @@ function Landing() {
   const progressRef = useRef<HTMLDivElement | null>(null);
   useScrollProgress(progressRef);
   const [manifestoOpen, setManifestoOpen] = useState(false);
+  // Save-Data / tela muito estreita → não monta o 3D (mantém metáfora via imagens)
+  const skip3D =
+    typeof navigator !== "undefined" &&
+    (((navigator as any).connection?.saveData ?? false) ||
+      ((navigator as any).deviceMemory ?? 8) < 3);
+  const sceneReady = useDeferredMount(skip3D);
 
   return (
     <div id="top" style={{ backgroundColor: "var(--ink)", color: "var(--ivory)" }}>
@@ -247,20 +282,24 @@ function Landing() {
       <div ref={progressRef} className="scroll-progress" aria-hidden />
 
       {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo */}
-      <div
-        aria-hidden
-        style={{
-          position: "fixed",
-          inset: 0,
-          zIndex: 0,
-          pointerEvents: "none",
-          opacity: 0.55,
-        }}
-      >
-        <Suspense fallback={null}>
-          <ForestScene />
-        </Suspense>
-      </div>
+      {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo.
+          Adiada até o browser estar ocioso; desativada em Save-Data. */}
+      {sceneReady && (
+        <div
+          aria-hidden
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: "none",
+            opacity: 0.55,
+          }}
+        >
+          <Suspense fallback={null}>
+            <ForestScene />
+          </Suspense>
+        </div>
+      )}
       <div style={{ position: "relative", zIndex: 1 }}>
       <Nav />
 
@@ -274,6 +313,8 @@ function Landing() {
           data-parallax="0.18"
           width={1920}
           height={1280}
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="mist-overlay" />
         <div className="container-editorial relative z-10 pt-32 pb-24">
