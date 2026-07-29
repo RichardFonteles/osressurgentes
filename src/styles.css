@@ -256,6 +256,9 @@
   z-index: 60;
   pointer-events: none;
   transition: transform 0.1s linear;
+}
+
+
 
 /* ============================================================
    DESIGN SYSTEM — Components
