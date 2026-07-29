@@ -698,6 +698,8 @@ function Landing() {
       </footer>
 
       <ManifestoModal open={manifestoOpen} onClose={() => setManifestoOpen(false)} />
+      </div>
     </div>
+
   );
 }
