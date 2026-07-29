@@ -313,6 +313,8 @@ function Landing() {
           data-parallax="0.18"
           width={1920}
           height={1280}
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="mist-overlay" />
         <div className="container-editorial relative z-10 pt-32 pb-24">
