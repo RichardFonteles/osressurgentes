@@ -498,7 +498,7 @@ function Landing() {
               ["Reconstruir a Identidade", "Deixar de reagir ao passado e começar a construir o futuro."],
               ["Ressurgir", "Não voltar a ser quem era, mas viver a partir de uma nova posição."],
             ].map(([title, body], i) => (
-              <li key={title} className="reveal relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)" }}>
+              <li key={title} className="reveal-left relative grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-l pb-14 pl-8 md:pl-14 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
                 <span
                   className="serif absolute -left-[1px] top-0 -translate-x-1/2 grid h-10 w-10 place-items-center rounded-full text-sm"
                   style={{ backgroundColor: "var(--ink)", color: "var(--gold)", border: "1px solid var(--gold)" }}
