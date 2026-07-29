@@ -1,9 +1,11 @@
 {
   "version": 1,
-  "asset_id": "23cff652-fe9f-40b8-9b8e-594b8ba9688a",
+  "asset_id": "e73bc9dc-a16a-4657-93af-a670a9bb1d22",
   "project_id": "406d1bb9-be16-4c88-8bff-8fa60af86abe",
-  "url": "/__l5e/assets-v1/23cff652-fe9f-40b8-9b8e-594b8ba9688a/ressurgentes-hero.mp4",
+  "url": "/__l5e/assets-v1/e73bc9dc-a16a-4657-93af-a670a9bb1d22/ressurgentes-hero.mp4",
+  "r2_key": "a/v1/406d1bb9-be16-4c88-8bff-8fa60af86abe/e73bc9dc-a16a-4657-93af-a670a9bb1d22/ressurgentes-hero.mp4",
   "original_filename": "ressurgentes-hero.mp4",
-  "size": 18718491,
-  "created_at": "2026-07-29T01:31:11Z"
+  "size": 10723332,
+  "content_type": "video/mp4",
+  "created_at": "2026-07-29T01:41:16Z"
 }
