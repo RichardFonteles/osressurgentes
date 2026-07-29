@@ -358,24 +358,21 @@ function Landing() {
           <div className="reveal">
             <Eyebrow>o espelho</Eyebrow>
             <SectionTitle>
-              Você já entendeu muita coisa.<br />
-              <span style={{ color: "var(--sand)" }}>Mas ainda não conseguiu sair do lugar.</span>
+              Você entendeu.<br />
+              <span style={{ color: "var(--sand)" }}>E ainda não se moveu.</span>
             </SectionTitle>
           </div>
           <div className="mt-12 space-y-5 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Você já estudou.</p>
-            <p>Já tentou mudar.</p>
-            <p>Já começou mais de uma vez.</p>
-            <p>Já prometeu a si mesmo que seria diferente.</p>
+            <p>Estudou.</p>
+            <p>Tentou.</p>
+            <p>Recomeçou.</p>
+            <p>Prometeu a si mesmo — de novo.</p>
           </div>
           <p className="mt-10 max-w-2xl text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.7)" }}>
-            Mesmo assim, continua vivendo entre o cansaço, a confusão e o adiamento.
-          </p>
-          <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.7)" }}>
-            Não porque você seja incapaz.
+            E continua no mesmo lugar. Não por incapacidade.
           </p>
           <p className="serif mt-10 max-w-2xl text-2xl md:text-3xl italic leading-snug reveal" style={{ color: "var(--ivory)" }}>
-            Talvez existam <span style={{ color: "var(--gold)" }}>Correntes Invisíveis</span> decidindo sua vida enquanto você acredita que ainda está no controle.
+            Algo invisível ainda decide por você — enquanto você jura que está no <span style={{ color: "var(--gold)" }}>controle</span>.
           </p>
         </div>
       </section>
