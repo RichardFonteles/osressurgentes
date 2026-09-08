@@ -168,6 +168,73 @@ function SectionTitle({ children, className = "" }: { children: ReactNode; class
   );
 }
 
+function ManifestoVideo() {
+  const [showMethodLogo, setShowMethodLogo] = useState(false);
+
+  const setReadingPace = (video: HTMLVideoElement) => {
+    video.playbackRate = 0.5;
+    video.defaultPlaybackRate = 0.5;
+  };
+
+  const updateClosingCard = (video: HTMLVideoElement) => {
+    const closingCardStart = Math.max(video.duration - 2.5, 0);
+    setShowMethodLogo(video.currentTime >= closingCardStart);
+  };
+
+  return (
+    <div
+      className="relative overflow-hidden"
+      style={{ backgroundColor: "var(--ink)" }}
+    >
+      <video
+        src={heroVideo.url}
+        controls
+        muted
+        playsInline
+        preload="metadata"
+        aria-label="Vídeo da Travessia dos Ressurgentes"
+        className="block aspect-video w-full object-cover"
+        onLoadedMetadata={(event) => {
+          setReadingPace(event.currentTarget);
+          updateClosingCard(event.currentTarget);
+        }}
+        onPlay={(event) => setReadingPace(event.currentTarget)}
+        onRateChange={(event) => {
+          if (event.currentTarget.playbackRate !== 0.5) {
+            event.currentTarget.playbackRate = 0.5;
+          }
+        }}
+        onTimeUpdate={(event) => updateClosingCard(event.currentTarget)}
+        onSeeked={(event) => updateClosingCard(event.currentTarget)}
+      />
+
+      <div
+        aria-hidden={!showMethodLogo}
+        className="pointer-events-none absolute inset-0 grid place-items-center transition-opacity duration-700"
+        style={{
+          opacity: showMethodLogo ? 1 : 0,
+          background: "radial-gradient(circle at center, rgba(47,79,58,0.96), rgba(13,15,14,0.99) 72%)",
+        }}
+      >
+        <div className="flex max-w-[80%] flex-col items-center text-center">
+          <img
+            src={logoOriginal.url}
+            alt=""
+            className="h-20 w-20 object-contain md:h-28 md:w-28"
+            style={{ filter: "invert(1)" }}
+          />
+          <p className="serif mt-5 text-xl tracking-[0.18em] text-[color:var(--ivory)] md:text-3xl">
+            ENCARAR · ROMPER · REESCREVER
+          </p>
+          <p className="mt-3 text-xs uppercase tracking-[0.32em] text-[color:var(--gold)] md:text-sm">
+            O método da Travessia
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ------------ nav ------------ */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -548,7 +615,7 @@ function Landing() {
             <button onClick={() => setManifestoOpen(true)} className="ds-btn ds-btn-ghost mt-8">Ler o manifesto completo</button>
           </div>
           <div className="reveal-scale">
-            <video src={heroVideo.url} controls muted playsInline preload="metadata" aria-label="Vídeo da floresta dos Ressurgentes" className="block aspect-video w-full object-cover" />
+            <ManifestoVideo />
           </div>
         </div>
       </section>
