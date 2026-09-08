@@ -4,7 +4,6 @@ const ForestScene = lazy(() => import("@/components/ForestScene"));
 import heroForest from "@/assets/hero-forest.jpg";
 import mentorPortrait from "@/assets/mentor-portrait-original.jpg.asset.json";
 import horizon from "@/assets/horizon.jpg";
-import moss from "@/assets/moss.jpg";
 import logoOriginal from "@/assets/logo-transparent.png.asset.json";
 import heroVideo from "@/assets/ressurgentes-hero.mp4.asset.json";
 
@@ -184,9 +183,9 @@ function Nav() {
   }, [open]);
 
   const links: [string, string][] = [
-    ["#limbo", "Limbo"],
-    ["#correntes", "Correntes"],
-    ["#travessia", "Travessia"],
+    ["#limbo", "Para quem é"],
+    ["#travessia", "Como funciona"],
+    ["#duvidas", "Dúvidas"],
     ["#manifesto", "Manifesto"],
   ];
 
@@ -384,7 +383,7 @@ function Landing() {
               className="mt-8 max-w-xl text-lg md:text-xl font-light leading-relaxed reveal"
               style={{ color: "rgba(240,234,223,0.78)" }}
             >
-              Uma mentoria para o homem que já entendeu tudo — e ainda não conseguiu se mover.
+              Mentoria individual para homens em reconstrução: uma experiência guiada, um plano de ação e acompanhamento para o seu próximo passo.
             </p>
             <p
               className="serif mt-10 text-xl italic reveal"
@@ -394,7 +393,7 @@ function Landing() {
             </p>
             <div className="mt-12 flex flex-wrap gap-4 reveal">
               <a href={CTA_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
-              <a href="#travessia" className="ds-btn ds-btn-ghost">Conhecer a Travessia</a>
+              <a href="#travessia" className="ds-btn ds-btn-ghost">Como funciona a mentoria</a>
             </div>
             <p className="mt-6 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
               Vagas por entrevista · sem venda automática
@@ -406,279 +405,69 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============ ESPELHO ============ */}
-      <section className="relative py-32 md:py-40" style={{ backgroundColor: "var(--ink)" }}>
-        <div className="container-editorial max-w-3xl">
-          <div className="reveal">
-            <Eyebrow>o espelho</Eyebrow>
-            <SectionTitle>
-              Você entendeu.<br />
-              <span style={{ color: "var(--sand)" }}>E ainda não se moveu.</span>
-            </SectionTitle>
-          </div>
-          <div className="mt-12 space-y-5 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Estudou.</p>
-            <p>Tentou.</p>
-            <p>Recomeçou.</p>
-            <p>Prometeu a si mesmo — de novo.</p>
-          </div>
-          <p className="mt-10 max-w-2xl text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.7)" }}>
-            E continua no mesmo lugar. Não por incapacidade.
-          </p>
-          <p className="serif mt-10 max-w-2xl text-2xl md:text-3xl italic leading-snug reveal" style={{ color: "var(--ivory)" }}>
-            Algo invisível ainda decide por você — enquanto você jura que está no <span style={{ color: "var(--gold)" }}>controle</span>.
-          </p>
-        </div>
-      </section>
 
-      {/* ============ LIMBO ============ */}
-      <section id="limbo" className="relative overflow-hidden py-32 md:py-44" style={{ backgroundColor: "var(--forest)" }}>
-        <img src={moss} alt="" aria-hidden data-parallax="0.12" className="parallax-y absolute inset-0 h-[120%] w-full -top-[10%] object-cover opacity-20" loading="lazy" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink), transparent 30%, transparent 70%, var(--ink))" }} />
-        <div className="container-editorial relative max-w-3xl">
-          <div className="reveal">
-            <Eyebrow>o limbo</Eyebrow>
-            <SectionTitle>O Limbo não parece uma prisão.</SectionTitle>
-          </div>
-          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Você trabalha.<br />Você entrega.<br />Você cuida de todos.</p>
-            <p>Por fora, a vida anda.</p>
-            <p>Por dentro, alguma coisa ficou suspensa.</p>
-            <p>Existe uma vida esperando por você — e ela nunca começa.</p>
-          </div>
-          <blockquote
-            className="serif mt-16 border-l-2 pl-8 text-2xl md:text-3xl italic leading-snug reveal"
-            style={{ borderColor: "var(--gold)", color: "var(--ivory)" }}
-          >
-            O Limbo é onde o homem continua funcionando — e já não se reconhece na própria vida.
-          </blockquote>
-        </div>
-      </section>
-
-      {/* ============ CORRENTES INVISÍVEIS ============ */}
-      <section id="correntes" className="relative py-32 md:py-40" style={{ backgroundColor: "var(--ink)" }}>
+      {/* ============ PARA QUEM É ============ */}
+      <section id="limbo" className="scroll-mt-24 py-20 md:py-28" style={{ backgroundColor: "var(--forest)" }}>
         <div className="container-editorial">
-          <div className="max-w-3xl reveal">
-            <Eyebrow>correntes invisíveis</Eyebrow>
-            <SectionTitle>
-              Não é falta de capacidade.<br />
-              <span style={{ color: "var(--sand)" }}>São Correntes Invisíveis.</span>
-            </SectionTitle>
-            <div className="mt-10 space-y-4 text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.78)" }}>
-              <p>Elas não aparecem no corpo.<br />Não fazem barulho.<br />Não te impedem de trabalhar.</p>
-              <p>Só mantêm tudo girando no mesmo eixo.</p>
-            </div>
+          <div className="max-w-2xl reveal">
+            <Eyebrow>para homens em reconstrução</Eyebrow>
+            <SectionTitle>A vida segue. Você quer voltar a fazer parte dela.</SectionTitle>
           </div>
-
-          <div className="mt-20 grid gap-px md:grid-cols-2 lg:grid-cols-3" style={{ backgroundColor: "var(--border)" }}>
+          <ul className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              ["Aprovação", "Adia decisões pra não decepcionar ninguém."],
-              ["Espera", "Espera clareza, força ou segurança para começar."],
-              ["Controle", "Tenta prever tudo pra não se expor."],
-              ["Dispersão", "Se ocupa demais pra não encarar o essencial."],
-              ["Culpa", "Ainda paga por histórias que já deviam ter terminado."],
-              ["Medo", "Chama de prudência o que é, em silêncio, adiamento."],
-            ].map(([title, body], i) => (
-              <article
-                key={title}
-                className="reveal group p-10 transition-colors duration-500 hover:bg-[color:var(--forest)]"
-                style={{ backgroundColor: "var(--ink)", ["--reveal-delay" as string]: `${i * 90}ms` }}
-              >
-                <div className="mb-6 flex items-center gap-3">
-                  <span className="serif text-sm" style={{ color: "var(--gold)" }}>0{i + 1}</span>
-                  <span className="h-px w-6" style={{ backgroundColor: "var(--gold)" }} />
-                </div>
-                <h3 className="serif mb-4 text-2xl" style={{ color: "var(--ivory)" }}>{title}</h3>
-                <p className="text-base leading-relaxed" style={{ color: "rgba(240,234,223,0.7)" }}>{body}</p>
-              </article>
+              ["Decisões adiadas", "Você sabe que precisa mudar algo, mas continua deixando para depois."],
+              ["Padrões que se repetem", "Você percebe os mesmos impasses nas suas escolhas e relações."],
+              ["Falta de direção", "Você quer organizar o próximo passo e assumir um compromisso com ele."],
+            ].map(([title, body]) => (
+              <li key={title} className="reveal border-t pt-6" style={{ borderColor: "var(--gold)" }}>
+                <h3 className="serif text-2xl">{title}</h3>
+                <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--sand)" }}>{body}</p>
+              </li>
             ))}
-          </div>
-
-          <p className="mx-auto mt-16 max-w-2xl text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Cada homem carrega a sua combinação. A Travessia começa quando o invisível é nomeado.
-          </p>
-        </div>
-      </section>
-
-      {/* ============ SOMBRAS ============ */}
-      <section className="relative overflow-hidden py-32 md:py-44" style={{ backgroundColor: "var(--forest)" }}>
-        <div className="container-editorial max-w-3xl">
-          <div className="reveal">
-            <Eyebrow>as sombras</Eyebrow>
-            <SectionTitle>
-              Romper correntes não basta.<br />
-              <span style={{ color: "var(--sand)" }}>É preciso atravessar as Sombras.</span>
-            </SectionTitle>
-          </div>
-          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Sombras não são defeitos a eliminar.</p>
-            <p>São desejos, emoções e forças que foram reprimidas — e agora dirigem sua vida em silêncio.</p>
-            <p>Quem foge delas, obedece. Quem atravessa, integra.</p>
-            <p>O que ameaçava vira consciência, beleza e realização.</p>
-          </div>
-          <blockquote
-            className="serif mt-16 text-2xl md:text-3xl italic leading-snug reveal"
-            style={{ color: "var(--ivory)" }}
-          >
-            <span style={{ color: "var(--gold)" }}>“</span>
-            Ajudo homens a atravessar suas sombras, integrar seus desejos e transformar sua intensidade em consciência, beleza e realização.
-            <span style={{ color: "var(--gold)" }}>”</span>
-            <footer className="mt-6 text-xs uppercase tracking-[0.32em] not-italic" style={{ color: "var(--sand)" }}>
-              — o.gentólogo
-            </footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* ============ CHAMADO ============ */}
-      <section className="relative py-32 md:py-40" style={{ backgroundColor: "var(--ink)" }}>
-        <div className="container-editorial max-w-3xl">
-          <div className="reveal">
-            <Eyebrow>o chamado</Eyebrow>
-            <SectionTitle>Nem todo homem escuta quando é chamado.</SectionTitle>
-          </div>
-          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Alguns escutam e voltam para o conhecido.</p>
-            <p>Outros escutam, sentem medo e ficam.</p>
-            <p>Poucos entendem: o chamado não tira o medo.</p>
-            <p>Ele só mostra que continuar igual já custa mais caro.</p>
-          </div>
-          <p className="serif mt-16 text-3xl md:text-4xl italic leading-snug reveal" style={{ color: "var(--gold)" }}>
-            Muitos ouvirão.<br />Poucos atravessam.
-          </p>
-        </div>
-      </section>
-
-      {/* ============ VÍDEO — A FLORESTA ============ */}
-      <section className="relative overflow-hidden py-24 md:py-32" style={{ backgroundColor: "var(--ink)" }}>
-        <div className="container-editorial max-w-5xl">
-          <div className="mb-10 max-w-2xl reveal">
-            <p className="label-eyebrow mb-4" style={{ color: "var(--gold)" }}>a travessia em movimento</p>
-            <h2 className="text-display text-[clamp(1.75rem,3.6vw,2.75rem)]" style={{ color: "var(--ivory)" }}>
-              Antes da luz, a floresta.
-            </h2>
-          </div>
-          <div className="relative overflow-hidden rounded-sm reveal-scale" style={{ boxShadow: "var(--elev-3)", border: "1px solid hsl(var(--gold) / 0.2)" }}>
-            <video
-              src={heroVideo.url}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="block h-full w-full object-cover aspect-video"
-            />
-            <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(13,15,14,0.15) 0%, rgba(13,15,14,0) 40%, rgba(13,15,14,0.55) 100%)" }} />
-          </div>
-        </div>
-      </section>
-
-      {/* ============ O MOMENTO ============ */}
-      <section className="relative overflow-hidden py-40 md:py-56">
-        <img src={horizon} alt="" aria-hidden data-parallax="0.2" className="parallax-y absolute inset-0 h-[125%] w-full -top-[12%] object-cover opacity-40" loading="lazy" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink) 0%, rgba(13,15,14,0.6) 30%, rgba(13,15,14,0.6) 70%, var(--ink) 100%)" }} />
-        <div className="container-editorial relative max-w-3xl text-center">
-          <p className="label-eyebrow mb-8 reveal" style={{ color: "var(--gold)" }}>o momento</p>
-          <h2 className="text-display text-[clamp(2rem,5vw,4rem)] reveal" style={{ color: "var(--ivory)" }}>
-            E se hoje for a linha entre quem você é e quem ainda pode se tornar?
-          </h2>
-          <div className="mx-auto mt-12 max-w-xl space-y-6 text-lg leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>Muitos esperam uma oportunidade para mudar.</p>
-            <p>Até entenderem que ela não chega como certeza.</p>
-            <p style={{ color: "var(--gold)" }}>Chega como decisão.</p>
-          </div>
-          <p className="serif mt-16 text-2xl md:text-3xl italic reveal" style={{ color: "var(--ivory)" }}>
-            Você atravessa — ou deixa passar?
-          </p>
-          <div className="mt-12 reveal">
-            <a href={CTA_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* ============ A TRAVESSIA ============ */}
-      <section id="travessia" className="py-32 md:py-40" style={{ backgroundColor: "var(--ink)" }}>
+      <section id="travessia" className="scroll-mt-24 py-20 md:py-28" style={{ backgroundColor: "var(--ink)" }}>
         <div className="container-editorial">
           <div className="max-w-3xl reveal">
-            <Eyebrow>a travessia</Eyebrow>
-            <SectionTitle>
-              A Travessia não entrega uma vida pronta.<br />
-              <span style={{ color: "var(--sand)" }}>Devolve a autoria da sua.</span>
-            </SectionTitle>
+            <Eyebrow>como funciona</Eyebrow>
+            <SectionTitle>Três etapas. Um próximo passo concreto.</SectionTitle>
+            <p className="mt-6 text-lg leading-relaxed" style={{ color: "var(--sand)" }}>
+              Na Travessia Individual, você traz um desafio da sua vida. O processo passa pela escuta,
+              por uma experiência guiada e pela construção de um plano com acompanhamento.
+            </p>
           </div>
-
-          <ol className="mt-20 mx-auto max-w-3xl">
+          <div className="mt-8 flex flex-wrap gap-3 text-base reveal">
+            {["Formato individual", "12 horas no total", "Plano e acompanhamento"].map((label) => (
+              <span key={label} className="border px-4 py-2" style={{ borderColor: "var(--border)", color: "var(--sand)" }}>{label}</span>
+            ))}
+          </div>
+          <ol className="mt-12 grid gap-8 md:grid-cols-3">
             {[
-              ["Reconhecer o Limbo", "Ver onde a sua vida ficou suspensa."],
-              ["Nomear as Correntes", "Identificar os padrões que ainda decidem por você."],
-              ["Atravessar as Sombras", "Integrar desejos, medos e emoções negados."],
-              ["Assumir o Poder Criador", "Transformar consciência em decisão."],
-              ["Reconstruir a Identidade", "Parar de reagir. Começar a construir."],
-              ["Ressurgir", "Não voltar a ser. Passar a existir de outro modo."],
-            ].map(([title, body], i) => (
-              <li key={title} className="reveal-left relative border-l pb-14 pl-10 md:pl-16 last:pb-0" style={{ borderColor: "var(--border)", ["--reveal-delay" as string]: `${i * 80}ms` }}>
-                <span
-                  className="serif absolute left-0 top-0 -translate-x-1/2 grid h-10 w-10 place-items-center rounded-full text-sm"
-                  style={{ backgroundColor: "var(--ink)", color: "var(--gold)", border: "1px solid var(--gold)" }}
-                >
-                  {i + 1}
-                </span>
-                <h3 className="serif text-2xl md:text-3xl" style={{ color: "var(--ivory)" }}>{title}</h3>
-                <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: "rgba(240,234,223,0.72)" }}>{body}</p>
+              { title: "Encarar", time: "1 hora · entrevista", body: "Conversar sobre o seu momento e definir o desafio que você quer trabalhar.", focus: "Foco: clareza sobre o ponto de partida." },
+              { title: "Romper", time: "4 horas · experiência guiada", body: "Explorar esse desafio com o Jogo do Herói, por meio de perguntas, reflexão e novas possibilidades de ação.", focus: "Foco: reconhecer padrões e considerar outras escolhas." },
+              { title: "Reescrever", time: "7 horas · plano e acompanhamento", body: "Construir um plano de ação e acompanhar os próximos passos da sua reconstrução.", focus: "Foco: transformar reflexão em ações na sua rotina." },
+            ].map(({ title, time, body, focus }, i) => (
+              <li key={title} className="reveal border p-6 md:p-8" style={{ borderColor: "var(--border)", backgroundColor: "var(--forest)" }}>
+                <span className="serif text-4xl" style={{ color: "var(--gold)" }}>0{i + 1}</span>
+                <h3 className="serif mt-5 text-3xl">{title}</h3>
+                <p className="mt-2 text-sm" style={{ color: "var(--gold)" }}>{time}</p>
+                <p className="mt-6 text-base leading-relaxed" style={{ color: "var(--sand)" }}>{body}</p>
+                <p className="mt-6 border-t pt-5 text-base leading-relaxed" style={{ borderColor: "var(--border)" }}>{focus}</p>
               </li>
             ))}
           </ol>
-
-          <p className="mx-auto mt-12 max-w-2xl text-center text-base italic reveal" style={{ color: "var(--sand)" }}>
-            Sem promessa linear. Cada homem no seu ritmo. Há caminho.
-          </p>
-        </div>
-      </section>
-
-      {/* ============ QUEM SÃO ============ */}
-      <section className="relative overflow-hidden py-32 md:py-40" style={{ backgroundColor: "var(--forest)" }}>
-        <div className="container-editorial max-w-3xl">
-          <div className="reveal">
-            <Eyebrow>quem são</Eyebrow>
-            <SectionTitle>Não são homens que nunca caíram.</SectionTitle>
-          </div>
-          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>São homens que decidiram não morar na queda.</p>
-            <p>Não procuram salvador.</p>
-            <p>Não terceirizam a própria vida.</p>
-            <p>Não negam suas Sombras.</p>
-            <p>Não esperam a ausência de medo para agir.</p>
-            <p>Caminham juntos porque nenhuma Travessia precisa ser solitária.</p>
-          </div>
-          <p className="serif mt-14 text-2xl md:text-3xl italic reveal" style={{ color: "var(--gold)" }}>
-            Não uma comunidade de prontos. Uma comunidade de dispostos.
-          </p>
-        </div>
-      </section>
-
-      {/* ============ MANIFESTO ============ */}
-      <section id="manifesto" className="relative py-32 md:py-44" style={{ backgroundColor: "var(--ink)" }}>
-        <div className="container-editorial max-w-3xl text-center">
-          <p className="label-eyebrow mb-8 reveal">o manifesto</p>
-          <div className="serif space-y-8 text-2xl md:text-4xl leading-snug reveal" style={{ color: "var(--ivory)" }}>
-            <p>Não viemos do topo.<br />Viemos do fundo.</p>
-            <p style={{ color: "rgba(240,234,223,0.65)" }} className="text-xl md:text-2xl">
-              Conhecemos o peso do Limbo,<br />as Correntes Invisíveis<br />e as Sombras que ninguém vê.
+          <div className="mt-10 flex flex-col items-start gap-5 reveal">
+            <p className="max-w-2xl text-base leading-relaxed" style={{ color: "var(--sand)" }}>
+              O primeiro contato é pelo WhatsApp para solicitar a entrevista.
+              Consulte a agenda, a distribuição dos encontros e o investimento antes de decidir participar.
             </p>
-            <p>Escolhemos atravessar.<br />Reconstruir.<br /><span style={{ color: "var(--gold)" }}>Ressurgir diferentes.</span></p>
-          </div>
-          <p className="serif mt-16 text-3xl md:text-5xl italic reveal" style={{ color: "var(--gold)" }}>
-            Não volto para salvar.<br />Volto para convocar.
-          </p>
-          <div className="mt-14 reveal">
-            <button onClick={() => setManifestoOpen(true)} className="ds-btn ds-btn-ghost">
-              Ler o manifesto completo
-            </button>
+            <a href={CTA_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
           </div>
         </div>
       </section>
-
-      {/* Seção do vídeo removida até o vídeo-manifesto real existir. */}
 
       {/* ============ MINHA TRAVESSIA ============ */}
       <section className="py-32 md:py-40" style={{ backgroundColor: "var(--ink)" }}>
@@ -723,115 +512,57 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============ FRASE MESTRA ============ */}
-      <section className="relative overflow-hidden py-32 md:py-44" style={{ backgroundColor: "var(--forest)" }}>
-        <div className="container-editorial max-w-3xl text-center">
-          <p className="label-eyebrow mb-10 reveal">o compromisso do ressurgente</p>
-          <p className="serif text-[clamp(1.6rem,3.5vw,2.6rem)] italic leading-snug reveal" style={{ color: "var(--ivory)" }}>
-            <span style={{ color: "var(--gold)" }}>“</span>
-            Eu deixo de me prender ao medo, assumo meu poder criador e uso minha intensidade para curar, prosperar e florescer.
-            <span style={{ color: "var(--gold)" }}>”</span>
-          </p>
-        </div>
-      </section>
 
-      {/* ============ PARA QUEM É / NÃO É ============ */}
-      <section className="py-32 md:py-40" style={{ backgroundColor: "var(--ink)" }}>
-        <div className="container-editorial grid gap-16 md:grid-cols-2 md:gap-20">
-          <div className="reveal">
-            <Eyebrow>pode ser para você</Eyebrow>
-            <h3 className="serif text-3xl md:text-4xl leading-snug" style={{ color: "var(--ivory)" }}>
-              Pode ser para você se…
-            </h3>
-            <ul className="mt-10 space-y-4 text-base md:text-lg" style={{ color: "rgba(240,234,223,0.82)" }}>
-              {[
-                "entendeu muito — e ainda não virou movimento;",
-                "sente que vive abaixo do que poderia construir;",
-                "reconhece padrões que se repetem;",
-                "cansou de só se motivar;",
-                "quer atravessar as Sombras sem ser julgado;",
-                "está pronto para assumir a própria vida;",
-                "quer caminhar ao lado de homens em Travessia.",
-              ].map((t) => (
-                <li key={t} className="flex gap-4">
-                  <span className="mt-3 h-px w-4 shrink-0" style={{ backgroundColor: "var(--gold)" }} />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="reveal">
-            <Eyebrow>não é para</Eyebrow>
-            <h3 className="serif text-3xl md:text-4xl leading-snug" style={{ color: "var(--ivory)" }}>
-              Não é para quem procura…
-            </h3>
-            <ul className="mt-10 space-y-4 text-base md:text-lg" style={{ color: "rgba(240,234,223,0.6)" }}>
-              {[
-                "salvador;",
-                "guru;",
-                "respostas prontas;",
-                "motivação passageira;",
-                "fórmula universal;",
-                "culpado externo;",
-                "atalho sem responsabilidade;",
-                "conforto para permanecer na dor.",
-              ].map((t) => (
-                <li key={t} className="flex gap-4">
-                  <span className="mt-3 h-px w-4 shrink-0" style={{ backgroundColor: "var(--muted-foreground)" }} />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="serif mt-10 text-lg italic" style={{ color: "var(--sand)" }}>
-              Ouvir o chamado não é o mesmo que estar pronto para atravessar.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ COMUNIDADE ============ */}
-      <section className="relative overflow-hidden py-32 md:py-40" style={{ backgroundColor: "var(--forest)" }}>
+      {/* ============ PERGUNTAS FREQUENTES ============ */}
+      <section id="duvidas" className="scroll-mt-24 py-20 md:py-28" style={{ backgroundColor: "var(--forest)" }}>
         <div className="container-editorial max-w-3xl">
           <div className="reveal">
-            <Eyebrow>a comunidade</Eyebrow>
-            <SectionTitle>
-              Você não estará sozinho na lama.<br />
-              <span style={{ color: "var(--sand)" }}>Mas ninguém a atravessa por você.</span>
-            </SectionTitle>
+            <Eyebrow>antes de começar</Eyebrow>
+            <SectionTitle>Dúvidas práticas.</SectionTitle>
           </div>
-          <div className="mt-12 space-y-6 text-lg md:text-xl leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.82)" }}>
-            <p>OS RESSURGENTES é uma comunidade de homens em Travessia.</p>
-            <p>Conversa. Consciência. Desafio. Movimento. Reconstrução.</p>
-            <p>Ninguém é carregado. Ninguém é humilhado.</p>
-            <p>Ninguém precisa fingir que já venceu.</p>
-            <p>Cada homem é convocado ao próximo passo possível.</p>
+          <div className="mt-10 reveal">
+            {[
+              ["O que vou trabalhar na mentoria?", "Você parte de um desafio da sua vida. A Travessia combina entrevista, experiência guiada e um plano de ação com acompanhamento."],
+              ["Preciso conhecer o Jogo do Herói?", "A experiência é guiada. Você participa a partir do seu desafio, com perguntas e reflexões ao longo do processo."],
+              ["Como são distribuídas as 12 horas?", "São 1 hora de entrevista, 4 horas de experiência guiada e 7 horas de plano e acompanhamento. A distribuição dos encontros deve ser combinada antes do início."],
+              ["Como consultar agenda e investimento?", "Use o botão Solicitar entrevista para conversar pelo WhatsApp e conhecer as condições de participação."],
+              ["A mentoria substitui terapia?", "Não. Este trabalho não substitui acompanhamento médico, psicológico ou psiquiátrico."],
+            ].map(([question, answer]) => (
+              <details key={question} className="group border-b py-5" style={{ borderColor: "var(--border)" }}>
+                <summary className="ds-focus cursor-pointer text-lg leading-relaxed">{question}</summary>
+                <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--sand)" }}>{answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ MANIFESTO ============ */}
+      <section id="manifesto" className="scroll-mt-24 py-20 md:py-28" style={{ backgroundColor: "var(--ink)" }}>
+        <div className="container-editorial grid items-center gap-12 lg:grid-cols-2">
+          <div className="reveal">
+            <Eyebrow>o compromisso do ressurgente</Eyebrow>
+            <p className="serif text-2xl md:text-3xl italic leading-snug">
+              Eu deixo de me prender ao medo, assumo meu poder criador e uso minha intensidade para curar, prosperar e florescer.
+            </p>
+            <button onClick={() => setManifestoOpen(true)} className="ds-btn ds-btn-ghost mt-8">Ler o manifesto completo</button>
+          </div>
+          <div className="reveal-scale">
+            <video src={heroVideo.url} controls muted playsInline preload="metadata" aria-label="Vídeo da floresta dos Ressurgentes" className="block aspect-video w-full object-cover" />
           </div>
         </div>
       </section>
 
       {/* ============ CONVOCAÇÃO FINAL ============ */}
-      <section id="convocacao" className="relative overflow-hidden py-40 md:py-56">
-        <img src={horizon} alt="" aria-hidden data-parallax="0.22" className="parallax-y absolute inset-0 h-[125%] w-full -top-[12%] object-cover" loading="lazy" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink) 0%, rgba(13,15,14,0.45) 40%, rgba(13,15,14,0.75) 100%)" }} />
+      <section id="convocacao" className="relative overflow-hidden py-24 md:py-32">
+        <img src={horizon} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, var(--ink), rgba(13,15,14,0.8))" }} />
         <div className="container-editorial relative max-w-3xl text-center">
-          <p className="label-eyebrow mb-10 reveal" style={{ color: "var(--gold)" }}>a convocação</p>
-          <h2 className="text-display text-[clamp(2rem,5.5vw,4.4rem)] reveal" style={{ color: "var(--ivory)" }}>
-            Correntes Invisíveis não caem sozinhas.
-          </h2>
-          <p className="serif mt-8 text-xl md:text-2xl italic reveal" style={{ color: "var(--sand)" }}>
-            A entrada é por entrevista. Um encontro. Uma escuta. Uma decisão.
+          <h2 className="text-display text-[clamp(2rem,5vw,4rem)] reveal">Vamos conversar sobre seu próximo passo?</h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed reveal" style={{ color: "var(--sand)" }}>
+            Solicite uma entrevista para entender se a Travessia faz sentido para o seu momento.
           </p>
-          <div className="mx-auto mt-12 max-w-xl space-y-4 text-lg leading-relaxed reveal" style={{ color: "rgba(240,234,223,0.85)" }}>
-            <p>Você não precisa ter todas as respostas.</p>
-            <p>Precisa reconhecer se continuar igual ainda cabe.</p>
-          </div>
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-4 reveal">
-            <a href={CONTACT_URL} className="ds-btn ds-btn-primary">Solicitar entrevista</a>
-            <a href="#manifesto" className="ds-btn ds-btn-ghost">Reler o Manifesto</a>
-          </div>
-          <p className="mt-10 text-xs uppercase tracking-[0.32em] reveal" style={{ color: "var(--sand)" }}>
-            Sem pressão. Sem performance. Só verdade.
-          </p>
+          <a href={CONTACT_URL} className="ds-btn ds-btn-primary mt-8 reveal">Solicitar entrevista</a>
         </div>
       </section>
 
@@ -854,9 +585,9 @@ function Landing() {
             <div>
               <p className="label-eyebrow mb-4">Navegar</p>
               <ul className="space-y-2 text-sm" style={{ color: "var(--muted-foreground)" }}>
-                <li><a href="#limbo" className="hover:text-[color:var(--gold)]">O Limbo</a></li>
-                <li><a href="#correntes" className="hover:text-[color:var(--gold)]">Correntes Invisíveis</a></li>
-                <li><a href="#travessia" className="hover:text-[color:var(--gold)]">A Travessia</a></li>
+                <li><a href="#limbo" className="hover:text-[color:var(--gold)]">Para quem é</a></li>
+                <li><a href="#duvidas" className="hover:text-[color:var(--gold)]">Dúvidas práticas</a></li>
+                <li><a href="#travessia" className="hover:text-[color:var(--gold)]">Como funciona</a></li>
                 <li><a href="#manifesto" className="hover:text-[color:var(--gold)]">Manifesto</a></li>
               </ul>
             </div>
