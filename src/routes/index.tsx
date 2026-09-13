@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
-const ForestScene = lazy(() => import("@/components/ForestScene"));
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import heroForest from "@/assets/hero-forest.jpg";
 import mentorPortrait from "@/assets/mentor-portrait-original.jpg.asset.json";
 import horizon from "@/assets/horizon.jpg";
@@ -16,29 +15,6 @@ export const Route = createFileRoute("/")({
     ],
   }),
 });
-
-/**
- * useDeferredMount — só monta o filho depois que o browser está ocioso
- * (ou após 1s de fallback). Reduz TBT e libera a thread para o LCP.
- * Também respeita Save-Data e telas muito pequenas: se `skip` for true,
- * nunca monta.
- */
-function useDeferredMount(skip = false) {
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    if (skip) return;
-    const ric = (window as any).requestIdleCallback as
-      | ((cb: () => void, opts?: { timeout: number }) => number)
-      | undefined;
-    if (ric) {
-      const id = ric(() => setReady(true), { timeout: 1500 });
-      return () => (window as any).cancelIdleCallback?.(id);
-    }
-    const t = setTimeout(() => setReady(true), 800);
-    return () => clearTimeout(t);
-  }, [skip]);
-  return ready;
-}
 
 // Configuração de CTAs — edite estas URLs livremente
 const CTA_URL = "https://wa.me/5585996983300?text=Quero%20solicitar%20uma%20entrevista%20para%20a%20mentoria%20Os%20Ressurgentes";
@@ -389,47 +365,11 @@ function Landing() {
   const progressRef = useRef<HTMLDivElement | null>(null);
   useScrollProgress(progressRef);
   const [manifestoOpen, setManifestoOpen] = useState(false);
-  // Save-Data / tela muito estreita → não monta o 3D (mantém metáfora via imagens)
-  const webGLAvailable = (() => {
-    if (typeof document === "undefined") return false;
-    try {
-      const canvas = document.createElement("canvas");
-      return Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
-    } catch {
-      return false;
-    }
-  })();
-  const skip3D =
-    !webGLAvailable ||
-    (typeof navigator !== "undefined" &&
-      (((navigator as any).connection?.saveData ?? false) ||
-        ((navigator as any).deviceMemory ?? 8) < 3));
-  const sceneReady = useDeferredMount(skip3D);
-
   return (
     <div id="top" style={{ backgroundColor: "var(--ink)", color: "var(--ivory)" }}>
       {/* Barra de progresso do scroll — guia sutil, dourada */}
       <div ref={progressRef} className="scroll-progress" aria-hidden />
 
-      {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo */}
-      {/* Cena 3D fixa — brasas ascendentes atrás de todo o conteúdo.
-          Adiada até o browser estar ocioso; desativada em Save-Data. */}
-      {sceneReady && (
-        <div
-          aria-hidden
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 0,
-            pointerEvents: "none",
-            opacity: 0.4,
-          }}
-        >
-          <Suspense fallback={null}>
-            <ForestScene />
-          </Suspense>
-        </div>
-      )}
       <div style={{ position: "relative", zIndex: 1 }}>
       <Nav />
 
