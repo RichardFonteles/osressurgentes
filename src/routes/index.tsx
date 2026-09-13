@@ -390,10 +390,20 @@ function Landing() {
   useScrollProgress(progressRef);
   const [manifestoOpen, setManifestoOpen] = useState(false);
   // Save-Data / tela muito estreita → não monta o 3D (mantém metáfora via imagens)
+  const webGLAvailable = (() => {
+    if (typeof document === "undefined") return false;
+    try {
+      const canvas = document.createElement("canvas");
+      return Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+    } catch {
+      return false;
+    }
+  })();
   const skip3D =
-    typeof navigator !== "undefined" &&
-    (((navigator as any).connection?.saveData ?? false) ||
-      ((navigator as any).deviceMemory ?? 8) < 3);
+    !webGLAvailable ||
+    (typeof navigator !== "undefined" &&
+      (((navigator as any).connection?.saveData ?? false) ||
+        ((navigator as any).deviceMemory ?? 8) < 3));
   const sceneReady = useDeferredMount(skip3D);
 
   return (
